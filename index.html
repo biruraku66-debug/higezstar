@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Higezstar — веб-дизайн, графические материалы и цифровые сервисы для бизнеса.">
+  <title>Higezstar — веб-дизайн и цифровые сервисы</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="nav-shell container">
+      <a class="brand" href="#top" aria-label="Higezstar — на главную">
+        <img src="assets/logo.png" alt="Higezstar">
+      </a>
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <a href="#services">Продукты</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#process">Процесс</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <a class="button button-dark header-cta" href="#request">Оставить заявку</a>
+      <button class="menu-button" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" hidden>
+      <a href="#services">Продукты</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#process">Процесс</a>
+      <a href="#contact">Контакты</a>
+      <a href="#request">Оставить заявку</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-blue">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Higezstar studio</p>
+          <h1>Веб-дизайн<br><span>и цифровые</span><br>сервисы</h1>
+          <p class="hero-text">Создаём сайты и графические материалы. Предоставляем доступ к приложениям и помогаем внедрить их в работу.</p>
+          <div class="hero-actions">
+            <a class="button button-light" href="#services">Смотреть решения</a>
+            <a class="button button-outline" href="#request">Обсудить задачу</a>
+          </div>
+        </div>
+        <div class="hero-art reveal" aria-hidden="true">
+          <video class="mascot-video" autoplay muted loop playsinline preload="auto" poster="assets/mascot-hero.png">
+            <source src="assets/mascot-hero.webm" type="video/webm">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits container" aria-label="Преимущества">
+      <article><span>01</span><div><h3>Фиксированный объём</h3><p>Согласуем состав работ до старта.</p></div></article>
+      <article><span>02</span><div><h3>Понятный процесс</h3><p>Показываем этапы, сроки и результат.</p></div></article>
+      <article><span>03</span><div><h3>Дизайн без шаблонности</h3><p>Система под задачу, а не декор ради декора.</p></div></article>
+    </section>
+
+    <section class="services section-blue" id="services">
+      <div class="services-pattern"></div>
+      <div class="container">
+        <div class="tabs reveal" role="tablist" aria-label="Направления">
+          <button class="tab is-active" type="button" data-tab="design" role="tab" aria-selected="true">дизайн</button>
+          <button class="tab" type="button" data-tab="digital" role="tab" aria-selected="false">цифровые сервисы</button>
+        </div>
+
+        <div class="service-layout" data-panel="design">
+          <div class="service-copy reveal">
+            <p class="section-kicker">Наши решения</p>
+            <h2>Создаём понятный<br>и узнаваемый образ</h2>
+            <p>Фиксируем цену после короткого брифа и собираем решение, которое можно реально использовать.</p>
+            <div class="service-cards" aria-label="Виды дизайн-услуг">
+              <article class="service-card card-white rotate-left is-selected" tabindex="0" role="button" data-card="web" aria-label="Подробнее о веб-дизайне">
+                <span>01</span><h3>Веб-дизайн</h3><p class="card-price-preview">Лендинги · лонгриды · сайты<small>смотреть стоимость →</small></p>
+              </article>
+              <article class="service-card card-mint rotate-right" tabindex="0" role="button" data-card="graphics" aria-label="Подробнее о графическом дизайне">
+                <span>02</span><h3>Графический дизайн</h3><p class="card-price-preview">Логотипы · маскоты · стикеры<small>смотреть стоимость →</small></p>
+              </article>
+              <article class="service-card card-red rotate-left-small" tabindex="0" role="button" data-card="redesign" aria-label="Подробнее о редизайне">
+                <span>03</span><h3>Редизайн</h3><p class="card-price-preview">Лендинги · сайты · интерфейсы<small>смотреть стоимость →</small></p>
+              </article>
+              <article class="service-card card-blue rotate-right-small" tabindex="0" role="button" data-card="identity" aria-label="Подробнее об айдентике">
+                <span>04</span><h3>Айдентика</h3><p class="card-price-preview">Визуальная система · гайдлайн · бренд-пакет<small>смотреть стоимость →</small></p>
+              </article>
+            </div>
+          </div>
+
+          <aside class="price-board reveal" id="pricing">
+            <p class="mini-link">подробнее</p>
+            <h3 id="board-title">Веб-дизайн</h3>
+            <div class="price-grid">
+              <button type="button" data-service="Лендинг" data-price="от 40 000 ₽"><span>01</span><b>Лендинг</b><small>от 40 000</small></button>
+              <button type="button" data-service="Лонгрид" data-price="от 40 000 ₽"><span>02</span><b>Лонгрид</b><small>от 40 000</small></button>
+              <button type="button" data-service="Многостраничный сайт" data-price="от 60 000 ₽"><span>03</span><b>Многостраничный сайт</b><small>от 60 000</small></button>
+              <button type="button" data-service="Интернет-магазин" data-price="от 50 000 ₽"><span>04</span><b>Интернет-магазин</b><small>от 50 000</small></button>
+            </div>
+            <div class="board-meta"><div><span>стоимость</span><strong id="selected-price">от 40 000 ₽</strong></div><div><span>срок</span><strong id="selected-time">от 2 недель</strong></div></div>
+            <ul id="board-includes">
+              <li>Структура и пользовательские сценарии</li>
+              <li>Визуальная концепция</li>
+              <li>Макеты для desktop и mobile</li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="service-layout digital-panel" data-panel="digital" hidden>
+          <div class="service-copy reveal">
+            <p class="section-kicker">Цифровые сервисы</p>
+            <h2>Инструменты<br>для ежедневной работы</h2>
+            <p>Подбираем сервис под конкретную задачу, настраиваем доступ и объясняем команде, как им пользоваться.</p>
+            <div class="service-cards digital-cards" aria-label="Виды цифровых сервисов">
+              <article class="service-card card-white rotate-left is-selected" tabindex="0" role="button" data-digital-card="access" aria-label="Подробнее о доступе к сервисам">
+                <span>01</span><h3>Доступ к сервисам</h3><p class="card-price-preview">Готовые приложения по подписке<small>смотреть условия →</small></p>
+              </article>
+              <article class="service-card card-mint rotate-right" tabindex="0" role="button" data-digital-card="setup" aria-label="Подробнее о настройке сервисов">
+                <span>02</span><h3>Настройка</h3><p class="card-price-preview">Подготовка сервиса под процессы<small>смотреть условия →</small></p>
+              </article>
+              <article class="service-card card-red rotate-left-small" tabindex="0" role="button" data-digital-card="launch" aria-label="Подробнее о внедрении сервисов">
+                <span>03</span><h3>Внедрение</h3><p class="card-price-preview">Подключение команды и запуск<small>смотреть условия →</small></p>
+              </article>
+              <article class="service-card card-blue rotate-right-small" tabindex="0" role="button" data-digital-card="support" aria-label="Подробнее о поддержке сервисов">
+                <span>04</span><h3>Поддержка</h3><p class="card-price-preview">Настройки и развитие решения<small>смотреть условия →</small></p>
+              </article>
+            </div>
+          </div>
+          <aside class="price-board digital-board reveal">
+            <p class="mini-link">подробнее</p>
+            <h3 id="digital-board-title">Доступ к сервисам</h3>
+            <p class="board-description" id="digital-board-text">Подбираем готовый продукт и предоставляем доступ без затрат на собственную разработку.</p>
+            <div class="board-meta">
+              <div><span>стоимость</span><strong id="digital-board-price">от 5 000 ₽ / мес</strong></div>
+              <div><span>запуск</span><strong id="digital-board-time">от 1 дня</strong></div>
+            </div>
+            <ul id="digital-board-includes">
+              <li>Подбор сервиса под задачу</li>
+              <li>Оформление доступа</li>
+              <li>Короткая инструкция для команды</li>
+            </ul>
+            <a class="button button-dark full" href="#request">Подобрать решение</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="process container" id="process">
+      <div class="process-number reveal"><span id="step-number">01</span><i></i></div>
+      <div class="process-content reveal">
+        <p class="section-kicker dark">Как работаем</p>
+        <h2 id="step-title">Определяем задачу</h2>
+        <p id="step-text">Фиксируем цель, аудиторию, ограничения и критерии результата. После встречи у вас остаётся понятное описание задачи.</p>
+        <div class="process-meta">
+          <div><span>результат</span><strong id="step-result">Бриф и карта задачи</strong></div>
+          <div><span>срок</span><strong id="step-time">1–2 дня</strong></div>
+        </div>
+        <div class="process-track"><span id="step-progress"></span></div>
+        <button class="button button-dark next-step" type="button">Следующий этап</button>
+      </div>
+    </section>
+
+    <section class="request section-blue" id="request">
+      <div class="container request-grid">
+        <div class="request-copy reveal">
+          <p class="section-kicker">Старт проекта</p>
+          <h2>Расскажите<br><span>о задаче</span></h2>
+          <p>Не знаете, с чего начать? Мы подготовили простой бриф без технических формулировок.</p>
+          <video class="mascot-video" autoplay muted loop playsinline preload="metadata" poster="assets/mascot-cta.png" aria-label="Анимированный маскот Higezstar">
+            <source src="assets/mascot-cta.webm" type="video/webm">
+          </video>
+        </div>
+        <form class="request-form reveal" id="lead-form">
+          <h3>Заполните анкету</h3>
+          <label><span>Имя</span><input name="name" autocomplete="name" required></label>
+          <label><span>Название компании (необязательно)</span><input name="company"></label>
+          <label><span>Что вам нужно?</span>
+            <select name="service" id="service-select" required>
+              <option value="">Выберите услугу</option>
+              <option>Лендинг</option><option>Лонгрид</option><option>Многостраничный сайт</option><option>Интернет-магазин</option><option>Графический дизайн</option><option>Айдентика</option><option>Цифровой сервис</option>
+            </select>
+          </label>
+          <label><span>О задаче</span><textarea name="message" rows="4" required></textarea></label>
+          <label><span>Сроки (если уже известны)</span><input name="deadline"></label>
+          <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+          <label class="consent"><input type="checkbox" required><span>Я согласен на обработку персональных данных</span></label>
+          <button class="button button-dark full" type="submit">Отправить заявку</button>
+          <p class="form-note">Сейчас форма открывает готовое письмо. Для автоматической отправки подключите Formspree или EmailJS.</p>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container" id="contact">
+    <img src="assets/logo-footer.png" alt="Higezstar">
+    <div><span>email</span><a href="mailto:soldatkinadp@yandex.ru">soldatkinadp@yandex.ru</a></div>
+    <div class="footer-bottom"><span>2026 © higezstar</span><span>ИП Солдаткина Дарья</span></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
