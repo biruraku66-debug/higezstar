@@ -1323,3 +1323,358 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hero-art { z-index: 4; }
   .menu-button span { background: #12c7d5; }
 }
+
+
+/* =========================================================
+   MOBILE V9 CLEAN PUZZLES — based on approved stacked cards
+   ========================================================= */
+@media (max-width: 720px) {
+  .service-layout,
+  .service-layout.digital-panel {
+    gap: 18px;
+  }
+
+  .service-copy {
+    padding-right: 0;
+  }
+
+  .service-copy h2 {
+    max-width: 10ch;
+    margin-bottom: 10px;
+  }
+
+  .service-copy > p:not(.section-kicker) {
+    max-width: 31ch;
+    margin-bottom: 18px;
+  }
+
+  .service-cards,
+  .digital-cards {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .service-card,
+  .digital-cards .service-card {
+    position: relative;
+    min-height: 120px;
+    width: 100%;
+    border-radius: 18px;
+    padding: 16px 18px 14px;
+    display: grid;
+    grid-template-columns: 56px 1fr 16px;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 4px;
+    align-items: start;
+    overflow: visible;
+    box-shadow: 0 12px 28px rgba(7, 17, 84, .16);
+    transform: none !important;
+    isolation: isolate;
+  }
+
+  .service-card > span,
+  .digital-cards .service-card > span {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: block;
+    padding-top: 0;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 700;
+    opacity: .9;
+  }
+
+  .service-card h3,
+  .digital-cards .service-card h3 {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 4px 0 0;
+    font-size: 18px;
+    line-height: .95;
+    letter-spacing: -.05em;
+    max-width: 12ch;
+  }
+
+  .service-card p,
+  .digital-cards .service-card p {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    max-width: 24ch;
+    font-size: 10.6px;
+    line-height: 1.22;
+  }
+
+  .service-card .card-price-preview small,
+  .digital-cards .service-card .card-price-preview small {
+    display: none;
+  }
+
+  .service-card::before,
+  .service-card::after,
+  .digital-cards .service-card::before,
+  .digital-cards .service-card::after {
+    content: "";
+    position: absolute;
+    display: block !important;
+    background: inherit;
+    box-shadow: none;
+  }
+
+  /* right chevron */
+  .service-card::after,
+  .digital-cards .service-card::after {
+    content: "↗";
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    opacity: .9;
+  }
+
+  /* 01: right tab */
+  .service-cards .service-card:nth-child(1)::before,
+  .digital-cards .service-card:nth-child(1)::before {
+    width: 28px;
+    height: 46px;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0 14px 14px 0;
+  }
+
+  /* 02: left tab + bottom tab */
+  .service-cards .service-card:nth-child(2)::before,
+  .digital-cards .service-card:nth-child(2)::before {
+    width: 22px;
+    height: 36px;
+    left: -11px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 14px 0 0 14px;
+  }
+  .service-cards .service-card:nth-child(2) .puzzle-bottom,
+  .digital-cards .service-card:nth-child(2) .puzzle-bottom,
+  .service-cards .service-card:nth-child(4) .puzzle-bottom,
+  .digital-cards .service-card:nth-child(4) .puzzle-bottom { display:none; }
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2),
+  .service-cards .service-card:nth-child(4),
+  .digital-cards .service-card:nth-child(4) {
+    margin-bottom: 14px;
+  }
+  .service-cards .service-card:nth-child(2) > h3,
+  .digital-cards .service-card:nth-child(2) > h3,
+  .service-cards .service-card:nth-child(4) > h3,
+  .digital-cards .service-card:nth-child(4) > h3 { max-width: 11ch; }
+  .service-cards .service-card:nth-child(2)::before,
+  .digital-cards .service-card:nth-child(2)::before { z-index: -1; }
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2) { position: relative; }
+  .service-cards .service-card:nth-child(2)::selection,
+  .digital-cards .service-card:nth-child(2)::selection { background: transparent; }
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2) { --bottom-tab-color: inherit; }
+  .service-cards .service-card:nth-child(2)::marker,
+  .digital-cards .service-card:nth-child(2)::marker { content: none; }
+  .service-cards .service-card:nth-child(2) .card-price-preview,
+  .digital-cards .service-card:nth-child(2) .card-price-preview { max-width: 22ch; }
+  .service-cards .service-card:nth-child(2)::after,
+  .digital-cards .service-card:nth-child(2)::after,
+  .service-cards .service-card:nth-child(4)::after,
+  .digital-cards .service-card:nth-child(4)::after { right: 14px; }
+
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2),
+  .service-cards .service-card:nth-child(4),
+  .digital-cards .service-card:nth-child(4) { overflow: visible; }
+
+  .service-cards .service-card:nth-child(2) > span,
+  .digital-cards .service-card:nth-child(2) > span,
+  .service-cards .service-card:nth-child(4) > span,
+  .digital-cards .service-card:nth-child(4) > span { align-self: start; }
+
+  .service-cards .service-card:nth-child(2)::before,
+  .digital-cards .service-card:nth-child(2)::before { box-shadow: 0 12px 28px rgba(7,17,84,.0); }
+
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2) { --tab-bottom-width: 34px; }
+
+  .service-cards .service-card:nth-child(2)::after,
+  .digital-cards .service-card:nth-child(2)::after,
+  .service-cards .service-card:nth-child(4)::after,
+  .digital-cards .service-card:nth-child(4)::after { z-index: 3; }
+
+  .service-cards .service-card:nth-child(2) {
+    position: relative;
+  }
+  .service-cards .service-card:nth-child(2) span,
+  .digital-cards .service-card:nth-child(2) span,
+  .service-cards .service-card:nth-child(4) span,
+  .digital-cards .service-card:nth-child(4) span { position: relative; z-index: 1; }
+
+  .service-cards .service-card:nth-child(2) .card-price-preview,
+  .digital-cards .service-card:nth-child(2) .card-price-preview,
+  .service-cards .service-card:nth-child(4) .card-price-preview,
+  .digital-cards .service-card:nth-child(4) .card-price-preview,
+  .service-cards .service-card:nth-child(2) h3,
+  .digital-cards .service-card:nth-child(2) h3,
+  .service-cards .service-card:nth-child(4) h3,
+  .digital-cards .service-card:nth-child(4) h3 { position: relative; z-index: 1; }
+
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2),
+  .service-cards .service-card:nth-child(4),
+  .digital-cards .service-card:nth-child(4) { }
+
+  .service-cards .service-card:nth-child(2)::before,
+  .digital-cards .service-card:nth-child(2)::before { }
+
+  .service-cards .service-card:nth-child(2) {
+    --bottom-tab-x: 76%;
+  }
+  .service-cards .service-card:nth-child(4) {
+    --bottom-tab-x: 72%;
+  }
+  .service-cards .service-card:nth-child(2) > i,
+  .digital-cards .service-card:nth-child(2) > i,
+  .service-cards .service-card:nth-child(4) > i,
+  .digital-cards .service-card:nth-child(4) > i { display:none; }
+  .service-cards .service-card:nth-child(2):not(.x),
+  .digital-cards .service-card:nth-child(2):not(.x),
+  .service-cards .service-card:nth-child(4):not(.x),
+  .digital-cards .service-card:nth-child(4):not(.x) { }
+  .service-cards .service-card:nth-child(2)::selection,
+  .digital-cards .service-card:nth-child(2)::selection,
+  .service-cards .service-card:nth-child(4)::selection,
+  .digital-cards .service-card:nth-child(4)::selection { background: transparent; }
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2),
+  .service-cards .service-card:nth-child(4),
+  .digital-cards .service-card:nth-child(4) { }
+  .service-cards .service-card:nth-child(2)::before,
+  .digital-cards .service-card:nth-child(2)::before,
+  .service-cards .service-card:nth-child(4)::before,
+  .digital-cards .service-card:nth-child(4)::before { }
+
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2),
+  .service-cards .service-card:nth-child(4),
+  .digital-cards .service-card:nth-child(4) { }
+  .service-cards .service-card:nth-child(2)::after,
+  .digital-cards .service-card:nth-child(2)::after,
+  .service-cards .service-card:nth-child(4)::after,
+  .digital-cards .service-card:nth-child(4)::after { }
+
+  .service-cards .service-card:nth-child(2)::before,
+  .digital-cards .service-card:nth-child(2)::before { }
+
+  .service-cards .service-card:nth-child(2)::after,
+  .digital-cards .service-card:nth-child(2)::after { content: "↗"; }
+
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2) { }
+
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2),
+  .service-cards .service-card:nth-child(4),
+  .digital-cards .service-card:nth-child(4) {
+    position: relative;
+  }
+  .service-cards .service-card:nth-child(2) .card-bottom-tab,
+  .digital-cards .service-card:nth-child(2) .card-bottom-tab,
+  .service-cards .service-card:nth-child(4) .card-bottom-tab,
+  .digital-cards .service-card:nth-child(4) .card-bottom-tab { display:none; }
+  .service-cards .service-card:nth-child(2)::before,
+  .digital-cards .service-card:nth-child(2)::before { }
+
+  .service-cards .service-card:nth-child(2)::after,
+  .digital-cards .service-card:nth-child(2)::after { }
+
+  .service-cards .service-card:nth-child(2)::before,
+  .digital-cards .service-card:nth-child(2)::before,
+  .service-cards .service-card:nth-child(4)::before,
+  .digital-cards .service-card:nth-child(4)::before { z-index: 0; }
+
+  .service-cards .service-card:nth-child(2)::after,
+  .digital-cards .service-card:nth-child(2)::after,
+  .service-cards .service-card:nth-child(4)::after,
+  .digital-cards .service-card:nth-child(4)::after { z-index: 4; }
+
+  .service-cards .service-card:nth-child(2),
+  .digital-cards .service-card:nth-child(2),
+  .service-cards .service-card:nth-child(4),
+  .digital-cards .service-card:nth-child(4) { }
+
+  /* 03: right tab */
+  .service-cards .service-card:nth-child(3)::before,
+  .digital-cards .service-card:nth-child(3)::before {
+    width: 24px;
+    height: 40px;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0 14px 14px 0;
+  }
+
+  /* 04: bottom tab */
+  .service-cards .service-card:nth-child(4)::before,
+  .digital-cards .service-card:nth-child(4)::before {
+    width: 36px;
+    height: 24px;
+    left: 72%;
+    bottom: -12px;
+    transform: translateX(-50%);
+    border-radius: 0 0 14px 14px;
+  }
+
+  .service-card:hover,
+  .service-card.is-selected,
+  .digital-cards .service-card:hover,
+  .digital-cards .service-card.is-selected {
+    box-shadow: 0 12px 28px rgba(7, 17, 84, .16);
+    transform: none !important;
+  }
+
+  .request-copy {
+    min-height: 454px;
+  }
+  .request-copy > p:not(.section-kicker) {
+    max-width: 58%;
+  }
+  .request-copy .mascot-video,
+  .request-copy .mascot-poster {
+    width: 318px;
+    right: -24px;
+    left: auto;
+    bottom: -8px;
+  }
+}
+
+@media (max-width: 390px) {
+  .service-card,
+  .digital-cards .service-card {
+    min-height: 112px;
+    padding: 15px 16px 13px;
+    grid-template-columns: 52px 1fr 14px;
+  }
+  .service-card > span,
+  .digital-cards .service-card > span { font-size: 14px; }
+  .service-card h3,
+  .digital-cards .service-card h3 { font-size: 16px; }
+  .service-card p,
+  .digital-cards .service-card p { font-size: 10px; }
+  .request-copy { min-height: 438px; }
+  .request-copy .mascot-video,
+  .request-copy .mascot-poster { width: 300px; right: -28px; }
+}
