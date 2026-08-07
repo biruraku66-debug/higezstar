@@ -1061,3 +1061,265 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .request-copy h2 { font-size: 42px; }
   .request-copy .mascot-poster { width: 365px; right: -118px; }
 }
+
+/* --- Mobile hero v6: layered mascot, no dead zone --- */
+@media (max-width: 720px) {
+  .site-header { inset: 9px 0 auto; }
+  .nav-shell { min-height:54px; height:54px; padding:6px 8px 6px 12px; border-radius:13px; }
+  .brand img { width:118px; height:32px; }
+  .menu-button { min-width:38px; min-height:38px; }
+  .menu-button span { width:23px; }
+
+  .hero { min-height: 540px; padding-top:78px; border-radius:0 0 22px 22px; }
+  .hero-grid { min-height:462px; position:relative; display:block; overflow:hidden; }
+  .hero-copy { position:relative; z-index:7; padding:18px 2px 0; }
+  .hero .eyebrow { margin:0 0 12px; font-size:8px; letter-spacing:.2em; }
+  .hero h1 { width:100%; max-width:355px; margin:0; font-size:clamp(39px,11.6vw,47px); line-height:.89; letter-spacing:-.068em; }
+  .hero h1 span { -webkit-text-stroke-width:.8px; }
+
+  .hero-text { width:57%; max-width:215px; margin:17px 0 0; font-size:10.5px; line-height:1.48; position:relative; z-index:9; }
+  .hero-actions { width:160px; max-width:160px; margin:16px 0 0; display:flex; flex-direction:column; align-items:flex-start; gap:9px; position:relative; z-index:10; }
+  .hero-actions .button-outline { order:1; width:160px; min-height:43px; padding:10px 12px; background:#fff; color:#22252c; border:0; border-radius:12px; }
+  .hero-actions .button-light { order:2; width:auto; min-height:0; padding:0; border-radius:0; background:transparent; color:#fff; font-size:9.8px; justify-content:flex-start; }
+  .hero-actions .button-light::after { content:' ↓'; margin-left:4px; }
+
+  .hero-art { position:absolute; z-index:5; right:-2px; top:276px; bottom:auto; width:74%; height:290px; margin:0; overflow:visible; pointer-events:none; }
+  .hero-art .mascot-poster { display:block; width:390px; max-width:none; right:-35px; top:0; bottom:auto; filter:drop-shadow(0 22px 34px rgba(4,18,122,.24)); }
+  .benefits { padding-top:22px; }
+}
+
+@media (max-width: 390px) {
+  .hero { min-height:530px; }
+  .hero-grid { min-height:452px; }
+  .hero h1 { font-size:39px; }
+  .hero-text { width:56%; font-size:10.2px; }
+  .hero-art { top:274px; width:73%; }
+  .hero-art .mascot-poster { width:378px; right:-33px; }
+}
+
+/* =========================================================
+   MOBILE HERO V7 — composition matched to the approved mockup
+   ========================================================= */
+@media (max-width: 720px) {
+  /* Full-width white navigation bar with a thin blue strip above it */
+  .site-header {
+    inset: 10px 0 auto;
+  }
+  .nav-shell.container {
+    width: 100%;
+    height: 70px;
+    min-height: 70px;
+    padding: 8px 20px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .brand img {
+    width: 166px;
+    height: 46px;
+  }
+  .menu-button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px 4px;
+  }
+  .menu-button span {
+    width: 34px;
+    height: 3px;
+    border-radius: 999px;
+    background: #6550b7;
+  }
+  .mobile-menu {
+    left: 12px;
+    right: 12px;
+    top: 78px;
+  }
+
+  /* Hero itself */
+  .hero {
+    min-height: 550px;
+    height: 550px;
+    padding-top: 80px;
+    border-radius: 0;
+  }
+  .hero::after { opacity: .42; }
+  .hero-glow {
+    width: 520px;
+    height: 520px;
+    right: -250px;
+    top: -105px;
+    opacity: .72;
+  }
+  .hero-grid {
+    width: 100%;
+    min-height: 470px;
+    height: 470px;
+    margin: 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-copy {
+    min-height: 470px;
+    height: 470px;
+    padding: 0;
+    position: relative;
+    z-index: 3;
+  }
+  .hero .eyebrow {
+    position: absolute;
+    z-index: 3;
+    top: 24px;
+    left: 20px;
+    margin: 0;
+    font-size: 8px;
+    letter-spacing: .2em;
+    opacity: .46;
+  }
+  .hero h1 {
+    position: absolute;
+    z-index: 3;
+    top: 86px;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-width: 345px;
+    margin: 0;
+    font-size: clamp(40px, 10.7vw, 44px);
+    line-height: .98;
+    letter-spacing: -.055em;
+  }
+  .hero h1 span {
+    display: inline;
+    font-size: 1em;
+    letter-spacing: -.055em;
+    -webkit-text-stroke-width: 1px;
+  }
+
+  /* Mascot crosses the headline like in the mockup. */
+  .hero-art {
+    position: absolute;
+    z-index: 4;
+    top: 24px;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    height: 350px;
+    margin: 0;
+    overflow: visible;
+    pointer-events: none;
+  }
+  .hero-art .mascot-poster {
+    display: block;
+    width: 430px;
+    max-width: none;
+    top: 0;
+    right: -106px;
+    bottom: auto;
+    filter: drop-shadow(0 24px 34px rgba(4,18,122,.22));
+  }
+
+  /* Copy and CTA sit on top of the lower part of the mascot. */
+  .hero-text {
+    position: absolute;
+    z-index: 6;
+    left: 20px;
+    right: 20px;
+    bottom: 84px;
+    width: auto;
+    max-width: 360px;
+    margin: 0;
+    font-size: 11.2px;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    position: absolute;
+    z-index: 7;
+    left: 20px;
+    right: 20px;
+    bottom: 22px;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 58px;
+    align-items: center;
+  }
+  .hero-actions .button-light,
+  .hero-actions .button-outline {
+    order: initial;
+    width: 100%;
+    min-width: 0;
+    min-height: 38px;
+    padding: 8px 10px;
+    border-radius: 9px;
+    font-size: 9.5px;
+    line-height: 1;
+    white-space: nowrap;
+    justify-content: center;
+  }
+  .hero-actions .button-light {
+    color: #22252c;
+    background: #fff;
+    border: 0;
+    box-shadow: none;
+  }
+  .hero-actions .button-light::after { content: none; }
+  .hero-actions .button-outline {
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.88);
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero {
+    min-height: 540px;
+    height: 540px;
+  }
+  .hero-grid,
+  .hero-copy {
+    min-height: 460px;
+    height: 460px;
+  }
+  .brand img { width: 158px; }
+  .hero h1 {
+    top: 84px;
+    font-size: 40px;
+  }
+  .hero-art { top: 24px; }
+  .hero-art .mascot-poster {
+    width: 412px;
+    right: -104px;
+  }
+  .hero-text {
+    bottom: 82px;
+    font-size: 10.7px;
+  }
+  .hero-actions {
+    bottom: 20px;
+    gap: 52px;
+  }
+}
+
+/* =========================================================
+   MOBILE HERO V8 — text above mascot + Higezstar brand menu
+   ========================================================= */
+@media (max-width: 720px) {
+  /* Keep the mascot as a background/compositional layer. */
+  .hero-art { z-index: 4; }
+  .hero h1 { z-index: 8; }
+  .hero .eyebrow,
+  .hero-text,
+  .hero-actions { z-index: 8; }
+
+  /* Hamburger matches the Higezstar cyan instead of the stray purple. */
+  .menu-button span { background: #12c7d5; }
+}
+
+/* MOBILE HERO V9 — fix stacking context: all copy sits above mascot */
+@media (max-width: 720px) {
+  .hero-copy { z-index: 8; }
+  .hero-art { z-index: 4; }
+  .menu-button span { background: #12c7d5; }
+}
