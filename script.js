@@ -238,38 +238,58 @@ const steps = [
   },
   {
     n: '03',
-    title: 'Создаём визуальную систему',
-    text: 'Определяем композицию, типографику, цвет и графику. Собираем ключевые экраны в едином стиле.',
-    result: 'Дизайн-концепция',
+    title: 'Создаём дизайн',
+    text: 'Определяем композицию, типографику, цвет и графику. Собираем ключевые экраны в едином визуальном языке.',
+    result: 'Концепция и макеты',
     time: '4–7 дней'
   },
   {
     n: '04',
     title: 'Готовим к запуску',
     text: 'Делаем адаптивы, проверяем состояния элементов и передаём аккуратно организованные материалы для разработки.',
-    result: 'Desktop + mobile макеты',
+    result: 'Адаптивы и передача',
     time: '2–5 дней'
   }
 ];
 
 let stepIndex = 0;
 const nextStep = document.querySelector('.next-step');
+const processNodes = [...document.querySelectorAll('[data-process-step]')];
 
 function renderStep(index) {
   const step = steps[index];
-  document.querySelector('#step-number').textContent = step.n;
-  document.querySelector('#step-title').textContent = step.title;
-  document.querySelector('#step-text').textContent = step.text;
-  document.querySelector('#step-result').textContent = step.result;
-  document.querySelector('#step-time').textContent = step.time;
-  document.querySelector('#step-progress').style.width = `${(index + 1) * 25}%`;
-  nextStep.textContent = index === steps.length - 1 ? 'Сначала' : 'Следующий этап';
+  const current = document.querySelector('#process-step-current');
+  const title = document.querySelector('#step-title');
+  const text = document.querySelector('#step-text');
+  const result = document.querySelector('#step-result');
+  const time = document.querySelector('#step-time');
+
+  if (current) current.textContent = step.n;
+  if (title) title.textContent = step.title;
+  if (text) text.textContent = step.text;
+  if (result) result.textContent = step.result;
+  if (time) time.textContent = step.time;
+
+  processNodes.forEach((node, nodeIndex) => {
+    const active = nodeIndex === index;
+    node.classList.toggle('is-active', active);
+    node.setAttribute('aria-current', active ? 'step' : 'false');
+  });
+
+  if (nextStep) nextStep.textContent = index === steps.length - 1 ? 'Сначала' : 'Следующий этап';
 }
+
+processNodes.forEach((node, index) => node.addEventListener('click', () => {
+  stepIndex = index;
+  renderStep(stepIndex);
+}));
 
 nextStep?.addEventListener('click', () => {
   stepIndex = (stepIndex + 1) % steps.length;
   renderStep(stepIndex);
 });
+
+renderStep(stepIndex);
 
 const revealElements = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

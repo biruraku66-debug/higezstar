@@ -151,18 +151,55 @@
       </div>
     </section>
 
-    <section class="process container" id="process">
-      <div class="process-number reveal"><span id="step-number">01</span><i></i></div>
-      <div class="process-content reveal">
-        <p class="section-kicker dark">Как работаем</p>
+    <section class="process-v13 container" id="process">
+      <div class="process-v13__left reveal">
+        <div class="process-v13__badge"><span>Этап</span><b id="process-step-current">01</b><span>из 04</span></div>
         <h2 id="step-title">Определяем задачу</h2>
         <p id="step-text">Фиксируем цель, аудиторию, ограничения и критерии результата. После встречи у вас остаётся понятное описание задачи.</p>
-        <div class="process-meta">
-          <div><span>результат</span><strong id="step-result">Бриф и карта задачи</strong></div>
-          <div><span>срок</span><strong id="step-time">1–2 дня</strong></div>
+
+        <div class="process-v13__meta">
+          <div class="process-v13__field">
+            <span>результат</span>
+            <strong id="step-result">Бриф и карта задачи</strong>
+          </div>
+          <div class="process-v13__field process-v13__field--time">
+            <span>сроки</span>
+            <strong id="step-time">1–2 дня</strong>
+          </div>
         </div>
-        <div class="process-track"><span id="step-progress"></span></div>
-        <button class="button button-dark next-step" type="button">Следующий этап</button>
+
+        <button class="process-v13__next next-step" type="button">Следующий этап</button>
+      </div>
+
+      <div class="process-v13__route reveal" aria-label="Этапы работы">
+        <svg class="process-v13__route-svg" viewBox="0 0 620 500" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="processRouteGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1237ef"/>
+              <stop offset="50%" stop-color="#268dff"/>
+              <stop offset="100%" stop-color="#39d7f0"/>
+            </linearGradient>
+            <filter id="processRouteShadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#1445d8" flood-opacity=".22"/>
+            </filter>
+          </defs>
+          <path class="process-v13__tube-shadow" d="M110 58 C78 111 87 169 148 188 C208 207 246 179 310 165 C372 151 441 159 463 211 C488 270 451 303 405 331 C358 360 348 393 401 407 C456 422 505 392 548 399 C574 404 581 432 560 459"/>
+          <path class="process-v13__tube" d="M110 58 C78 111 87 169 148 188 C208 207 246 179 310 165 C372 151 441 159 463 211 C488 270 451 303 405 331 C358 360 348 393 401 407 C456 422 505 392 548 399 C574 404 581 432 560 459"/>
+          <path class="process-v13__tube-shine" d="M110 58 C78 111 87 169 148 188 C208 207 246 179 310 165 C372 151 441 159 463 211 C488 270 451 303 405 331 C358 360 348 393 401 407 C456 422 505 392 548 399 C574 404 581 432 560 459"/>
+        </svg>
+
+        <button class="process-v13__node process-v13__node--1 is-active" type="button" data-process-step="0" aria-label="Этап 1: Бриф">
+          <span class="process-v13__node-circle">01</span><span class="process-v13__node-label">Бриф</span>
+        </button>
+        <button class="process-v13__node process-v13__node--2" type="button" data-process-step="1" aria-label="Этап 2: Структура">
+          <span class="process-v13__node-circle">02</span><span class="process-v13__node-label">Структура</span>
+        </button>
+        <button class="process-v13__node process-v13__node--3" type="button" data-process-step="2" aria-label="Этап 3: Дизайн">
+          <span class="process-v13__node-circle">03</span><span class="process-v13__node-label">Дизайн</span>
+        </button>
+        <button class="process-v13__node process-v13__node--4" type="button" data-process-step="3" aria-label="Этап 4: Запуск">
+          <span class="process-v13__node-circle">04</span><span class="process-v13__node-label">Запуск</span>
+        </button>
       </div>
     </section>
 
