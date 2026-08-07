@@ -761,7 +761,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
     box-shadow: none;
   }
   .hero-actions .button-light::after {
-    content: " ↓";
+    content: "";
     margin-left: 4px;
   }
   .hero-art {
@@ -1081,7 +1081,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hero-actions { width:160px; max-width:160px; margin:16px 0 0; display:flex; flex-direction:column; align-items:flex-start; gap:9px; position:relative; z-index:10; }
   .hero-actions .button-outline { order:1; width:160px; min-height:43px; padding:10px 12px; background:#fff; color:#22252c; border:0; border-radius:12px; }
   .hero-actions .button-light { order:2; width:auto; min-height:0; padding:0; border-radius:0; background:transparent; color:#fff; font-size:9.8px; justify-content:flex-start; }
-  .hero-actions .button-light::after { content:' ↓'; margin-left:4px; }
+  .hero-actions .button-light::after { content:' '; margin-left:4px; }
 
   .hero-art { position:absolute; z-index:5; right:-2px; top:276px; bottom:auto; width:74%; height:290px; margin:0; overflow:visible; pointer-events:none; }
   .hero-art .mascot-poster { display:block; width:390px; max-width:none; right:-35px; top:0; bottom:auto; filter:drop-shadow(0 22px 34px rgba(4,18,122,.24)); }
@@ -1429,7 +1429,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   /* right chevron */
   .service-card::after,
   .digital-cards .service-card::after {
-    content: "↗";
+    content: "";
     top: 50%;
     right: 14px;
     transform: translateY(-50%);
@@ -1580,7 +1580,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .digital-cards .service-card:nth-child(2)::before { }
 
   .service-cards .service-card:nth-child(2)::after,
-  .digital-cards .service-card:nth-child(2)::after { content: "↗"; }
+  .digital-cards .service-card:nth-child(2)::after { content: ""; }
 
   .service-cards .service-card:nth-child(2),
   .digital-cards .service-card:nth-child(2) { }
