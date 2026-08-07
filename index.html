@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Higezstar — веб-дизайн, графические материалы и цифровые сервисы для бизнеса.">
   <title>Higezstar — веб-дизайн и цифровые сервисы</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="desktop-site">
   <header class="site-header" id="top">
     <div class="nav-shell container">
       <a class="brand" href="#top" aria-label="Higezstar — на главную">
@@ -50,7 +51,9 @@
           </div>
         </div>
         <div class="hero-art reveal" aria-hidden="true">
-          <img src="assets/mascot-hero.png" alt="">
+          <video class="desktop-mascot-video" autoplay muted loop playsinline preload="auto" poster="assets/mascot-hero.png">
+            <source src="assets/mascot-hero.webm" type="video/webm">
+          </video>
         </div>
       </div>
     </section>
@@ -69,21 +72,60 @@
           <button class="tab" type="button" data-tab="digital" role="tab" aria-selected="false">цифровые сервисы</button>
         </div>
 
-        <div class="service-layout">
+        <div class="service-layout" data-panel="design">
           <div class="service-copy reveal">
-            <p class="section-kicker" id="services-kicker">Наши решения</p>
-            <h2 id="services-title">Создаём понятный<br>и узнаваемый образ</h2>
-            <p id="services-desc">Фиксируем цену после короткого брифа и собираем решение, которое можно реально использовать.</p>
-            <div class="service-cards" id="services-cards"></div>
+            <p class="section-kicker">Наши решения</p>
+            <h2>Создаём понятный<br>и узнаваемый образ</h2>
+            <p>Фиксируем цену после короткого брифа и собираем решение, которое можно реально использовать.</p>
+            <div class="service-cards">
+              <article class="service-card card-white rotate-left">
+                <span>01</span><h3>Веб-дизайн</h3><p>Лендинги, корпоративные сайты и дизайн интерфейсов.</p>
+              </article>
+              <article class="service-card card-mint rotate-right">
+                <span>02</span><h3>Графический дизайн</h3><p>Материалы для понятной и цельной коммуникации.</p>
+              </article>
+              <article class="service-card card-red rotate-left-small">
+                <span>03</span><h3>Редизайн</h3><p>Пересобираем продукт без потери узнаваемости.</p>
+              </article>
+              <article class="service-card card-blue rotate-right-small">
+                <span>04</span><h3>Айдентика</h3><p>Логотип, визуальная система и правила применения.</p>
+              </article>
+            </div>
           </div>
 
           <aside class="price-board reveal" id="pricing">
-            <p class="mini-link" id="board-kicker">подробнее</p>
-            <h3 id="board-title">Веб-дизайн</h3>
-            <div class="price-grid" id="price-grid"></div>
-            <div class="board-meta" id="board-meta"></div>
-            <ul id="board-list"></ul>
-            <a class="button button-dark full board-cta is-hidden" id="board-cta" href="#request">Подобрать решение</a>
+            <p class="mini-link">подробнее</p>
+            <h3>Веб-дизайн</h3>
+            <div class="price-grid">
+              <button type="button" data-service="Лендинг" data-price="от 40 000 ₽"><span>01</span><b>Лендинг</b><small>от 40 000</small></button>
+              <button type="button" data-service="Лонгрид" data-price="от 40 000 ₽"><span>02</span><b>Лонгрид</b><small>от 40 000</small></button>
+              <button type="button" data-service="Многостраничный сайт" data-price="от 60 000 ₽"><span>03</span><b>Многостраничный сайт</b><small>от 60 000</small></button>
+              <button type="button" data-service="Интернет-магазин" data-price="от 50 000 ₽"><span>04</span><b>Интернет-магазин</b><small>от 50 000</small></button>
+            </div>
+            <div class="board-meta"><div><span>стоимость</span><strong id="selected-price">от 40 000 ₽</strong></div><div><span>срок</span><strong>от 2 недель</strong></div></div>
+            <ul>
+              <li>Структура и пользовательские сценарии</li>
+              <li>Визуальная концепция</li>
+              <li>Макеты для desktop и mobile</li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="service-layout digital-panel" data-panel="digital" hidden>
+          <div class="service-copy reveal">
+            <p class="section-kicker">Цифровые сервисы</p>
+            <h2>Помогаем внедрять<br>готовые инструменты</h2>
+            <p>Подбираем сервис под конкретную задачу, настраиваем доступ и объясняем команде, как им пользоваться.</p>
+          </div>
+          <aside class="price-board reveal">
+            <p class="mini-link">настройка под ключ</p>
+            <h3>Цифровые продукты</h3>
+            <div class="digital-list">
+              <div><b>Таск-менеджеры</b><span>структура задач и ролей</span></div>
+              <div><b>CRM и формы</b><span>сбор и обработка заявок</span></div>
+              <div><b>Базы знаний</b><span>единое пространство для команды</span></div>
+            </div>
+            <a class="button button-dark full" href="#request">Подобрать решение</a>
           </aside>
         </div>
       </div>
@@ -102,13 +144,6 @@
         <div class="process-track"><span id="step-progress"></span></div>
         <button class="button button-dark next-step" type="button">Следующий этап</button>
       </div>
-
-      <div class="mobile-process-steps" aria-label="Этапы работы">
-        <article><span>1</span><h3>Обсуждаем задачу</h3><p>Понимаем цели и фиксируем требования.</p></article>
-        <article><span>2</span><h3>Проектируем решение</h3><p>Собираем структуру и пользовательский сценарий.</p></article>
-        <article><span>3</span><h3>Создаём дизайн</h3><p>Разрабатываем визуальную систему и адаптивы.</p></article>
-        <article><span>4</span><h3>Передаём проект</h3><p>Готовим макеты и материалы к запуску.</p></article>
-      </div>
     </section>
 
     <section class="request section-blue" id="request">
@@ -117,7 +152,9 @@
           <p class="section-kicker">Старт проекта</p>
           <h2>Расскажите<br>о вашей <span>задаче</span></h2>
           <p>Не знаете, с чего начать? Мы подготовили простой бриф без технических формулировок.</p>
-          <img src="assets/mascot-cta.png" alt="Маскот Higezstar">
+          <video class="desktop-request-mascot-video" autoplay muted loop playsinline preload="metadata" poster="assets/mascot-cta.png" aria-label="Анимированный маскот Higezstar">
+            <source src="assets/mascot-cta.webm" type="video/webm">
+          </video>
         </div>
         <form class="request-form reveal" id="lead-form">
           <h3>Заполните анкету</h3>
@@ -146,6 +183,174 @@
     <div><span>email</span><a href="mailto:soldatkinadp@yandex.ru">soldatkinadp@yandex.ru</a></div>
     <div class="footer-bottom"><span>2026 © higezstar</span><span>ИП Солдаткина Дарья</span></div>
   </footer>
+
+  </div>
+
+  <div class="mobile-site" aria-label="Мобильная версия Higezstar">
+    <header class="m-header" id="m-top">
+      <a class="m-brand" href="#m-top" aria-label="Higezstar — на главную">
+        <img src="assets/logo.png" alt="Higezstar">
+      </a>
+      <button class="m-menu-button" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="m-menu" hidden aria-label="Мобильная навигация">
+        <a href="#m-services">Продукты</a>
+        <a href="#m-pricing">Тарифы</a>
+        <a href="#m-process">Процесс</a>
+        <a href="#m-contact">Контакты</a>
+        <a class="m-menu-cta" href="#m-request">Оставить заявку</a>
+      </nav>
+    </header>
+
+    <main class="m-main">
+      <section class="m-hero">
+        <div class="m-hero-copy">
+          <p class="m-eyebrow">Higezstar studio</p>
+          <h1 class="m-hero-title">
+            <span>Веб-дизайн</span>
+            <span class="m-outline">и цифровые</span>
+            <span>сервисы</span>
+          </h1>
+          <p class="m-hero-text">Создаём сайты и графические материалы. Предоставляем доступ к приложениям и помогаем внедрить их в работу.</p>
+          <div class="m-hero-actions">
+            <a class="m-primary-button" href="#m-request">Обсудить задачу <span>→</span></a>
+            <a class="m-secondary-link" href="#m-services">Смотреть решения <span>↘</span></a>
+          </div>
+        </div>
+        <div class="m-hero-art" aria-hidden="true">
+          <img src="assets/mascot-hero.png" alt="">
+        </div>
+      </section>
+
+      <section class="m-benefits" aria-label="Преимущества">
+        <article><span>01</span><strong>Фиксированный<br>объём</strong></article>
+        <article><span>02</span><strong>Понятный<br>процесс</strong></article>
+        <article><span>03</span><strong>Без<br>шаблонности</strong></article>
+      </section>
+
+      <section class="m-services" id="m-services">
+        <div class="m-section-head">
+          <p>Наши решения</p>
+          <h2>Создаём понятный<br>и узнаваемый образ</h2>
+        </div>
+
+        <div class="m-tabs" role="tablist" aria-label="Направления">
+          <button class="m-tab is-active" type="button" data-m-tab="design" aria-selected="true">дизайн</button>
+          <button class="m-tab" type="button" data-m-tab="digital" aria-selected="false">цифровые сервисы</button>
+        </div>
+
+        <div class="m-puzzle-stack" data-m-panel="design">
+          <article class="m-puzzle m-puzzle-white">
+            <span class="m-puzzle-num">01</span>
+            <div><h3>Веб-дизайн</h3><p>Лендинги, корпоративные сайты и дизайн интерфейсов.</p></div>
+            <span class="m-puzzle-arrow">↗</span>
+          </article>
+          <article class="m-puzzle m-puzzle-mint">
+            <span class="m-puzzle-num">02</span>
+            <div><h3>Графический<br>дизайн</h3><p>Материалы для понятной и цельной коммуникации.</p></div>
+            <span class="m-puzzle-arrow">↗</span>
+          </article>
+          <article class="m-puzzle m-puzzle-red">
+            <span class="m-puzzle-num">03</span>
+            <div><h3>Редизайн</h3><p>Пересобираем продукт без потери узнаваемости.</p></div>
+            <span class="m-puzzle-arrow">↗</span>
+          </article>
+          <article class="m-puzzle m-puzzle-blue">
+            <span class="m-puzzle-num">04</span>
+            <div><h3>Айдентика</h3><p>Логотип, визуальная система и правила применения.</p></div>
+            <span class="m-puzzle-arrow">↗</span>
+          </article>
+        </div>
+
+        <div class="m-puzzle-stack" data-m-panel="digital" hidden>
+          <article class="m-puzzle m-puzzle-white">
+            <span class="m-puzzle-num">01</span>
+            <div><h3>Таск-менеджеры</h3><p>Структура задач, ролей и рабочих процессов команды.</p></div>
+            <span class="m-puzzle-arrow">↗</span>
+          </article>
+          <article class="m-puzzle m-puzzle-mint">
+            <span class="m-puzzle-num">02</span>
+            <div><h3>CRM и формы</h3><p>Сбор заявок и понятная обработка обращений.</p></div>
+            <span class="m-puzzle-arrow">↗</span>
+          </article>
+          <article class="m-puzzle m-puzzle-red">
+            <span class="m-puzzle-num">03</span>
+            <div><h3>Базы знаний</h3><p>Единое пространство для инструкций и материалов.</p></div>
+            <span class="m-puzzle-arrow">↗</span>
+          </article>
+          <article class="m-puzzle m-puzzle-blue">
+            <span class="m-puzzle-num">04</span>
+            <div><h3>Автоматизация</h3><p>Настройка интеграций и сценариев внутри сервиса.</p></div>
+            <span class="m-puzzle-arrow">↗</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="m-price" id="m-pricing">
+        <div class="m-price-heading">
+          <p id="m-price-kicker">Подробнее</p>
+          <h2 id="m-price-title">Веб-дизайн</h2>
+          <strong id="m-price-main">от 40 000 ₽</strong>
+        </div>
+        <div class="m-price-options" id="m-price-options">
+          <button class="is-active" type="button" data-m-service="Лендинг" data-m-price="от 40 000 ₽"><span>01</span>Лендинг</button>
+          <button type="button" data-m-service="Лонгрид" data-m-price="от 40 000 ₽"><span>02</span>Лонгрид</button>
+          <button type="button" data-m-service="Многостраничный сайт" data-m-price="от 60 000 ₽"><span>03</span>Многостраничный сайт</button>
+          <button type="button" data-m-service="Интернет-магазин" data-m-price="от 50 000 ₽"><span>04</span>Интернет-магазин</button>
+        </div>
+        <div class="m-price-meta">
+          <div><span>срок</span><strong id="m-price-term">от 2 недель</strong></div>
+          <div><span>результат</span><strong id="m-price-result">desktop + mobile</strong></div>
+        </div>
+        <ul id="m-price-list">
+          <li>Структура и пользовательские сценарии</li>
+          <li>Визуальная концепция</li>
+          <li>Макеты для desktop и mobile</li>
+        </ul>
+      </section>
+
+      <section class="m-process" id="m-process">
+        <div class="m-process-head"><p>Как работаем</p><h2>От задачи<br>до запуска</h2></div>
+        <div class="m-stepper">
+          <article class="m-step is-active"><span>01</span><div><h3>Определяем задачу</h3><p>Цель, аудитория, ограничения и критерии результата.</p></div></article>
+          <article class="m-step"><span>02</span><div><h3>Собираем структуру</h3><p>Логика страницы и пользовательские сценарии.</p></div></article>
+          <article class="m-step"><span>03</span><div><h3>Создаём визуал</h3><p>Композиция, типографика и ключевые экраны.</p></div></article>
+          <article class="m-step"><span>04</span><div><h3>Готовим к запуску</h3><p>Адаптивы, состояния и передача материалов.</p></div></article>
+        </div>
+      </section>
+
+      <section class="m-request" id="m-request">
+        <div class="m-request-copy">
+          <p>Старт проекта</p>
+          <h2>Расскажите<br>о задаче</h2>
+          <span>Не знаете, с чего начать? Заполните короткий бриф.</span>
+        </div>
+        <div class="m-request-art" aria-hidden="true"><img src="assets/mascot-cta.png" alt=""></div>
+        <form class="m-form" id="m-lead-form">
+          <label><span>Имя</span><input name="name" autocomplete="name" required></label>
+          <label><span>Компания (необязательно)</span><input name="company"></label>
+          <label><span>Что вам нужно?</span>
+            <select name="service" id="m-service-select" required>
+              <option value="">Выберите услугу</option>
+              <option>Лендинг</option><option>Лонгрид</option><option>Многостраничный сайт</option><option>Интернет-магазин</option><option>Графический дизайн</option><option>Айдентика</option><option>Цифровой сервис</option>
+            </select>
+          </label>
+          <label><span>О задаче</span><textarea name="message" rows="4" required></textarea></label>
+          <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+          <label class="m-consent"><input type="checkbox" required><span>Согласен на обработку персональных данных</span></label>
+          <button type="submit">Отправить заявку <span>→</span></button>
+          <p class="m-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="m-footer" id="m-contact">
+      <img src="assets/logo-footer.png" alt="Higezstar">
+      <a href="mailto:soldatkinadp@yandex.ru">soldatkinadp@yandex.ru</a>
+      <div><span>2026 © higezstar</span><span>ИП Солдаткина Дарья</span></div>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
