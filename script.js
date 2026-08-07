@@ -258,6 +258,8 @@ const processNodes = [...document.querySelectorAll('[data-process-step]')];
 
 function renderStep(index) {
   const step = steps[index];
+  const processSection = document.querySelector('.process-v16');
+  if (processSection) processSection.dataset.activeStep = String(index);
   const current = document.querySelector('#process-step-current');
   const title = document.querySelector('#step-title');
   const text = document.querySelector('#step-text');
