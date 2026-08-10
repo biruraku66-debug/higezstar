@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="brief.css?v=9">
 
 
 
@@ -255,34 +256,55 @@
     </section>
 
     <section class="request section-blue" id="request">
-      <div class="container request-grid">
-        <div class="request-copy reveal">
-          <p class="section-kicker">Старт проекта</p>
-          <h2>Расскажите<br><span>о задаче</span></h2>
-          <p>Не знаете, с чего начать? Мы подготовили простой бриф без технических формулировок.</p>
-          <video class="mascot-video" autoplay muted loop playsinline preload="metadata" poster="assets/mascot-cta.png" aria-label="Анимированный маскот Higezstar">
-            <source src="assets/mascot-cta.webm" type="video/webm">
-          </video>
-          <img class="mascot-poster" src="assets/mascot-cta.png" alt="Маскот Higezstar" loading="lazy">
+      <div class="container request-shell">
+        <div class="brief-start reveal" data-brief-view="start">
+          <div class="brief-intro">
+            <div class="brief-intro-copy">
+              <p class="section-kicker">Старт проекта</p>
+              <h2>Расскажите<br>о вашей <span>задаче</span></h2>
+              <p>Расскажите о проекте так, как удобно —<br>остальное уточним и разберём вместе.</p>
+            </div>
+            <video class="brief-mascot" autoplay muted loop playsinline preload="metadata" poster="assets/mascot-cta.png" aria-label="Анимированный маскот Higezstar">
+              <source src="assets/mascot-cta.webm" type="video/webm">
+            </video>
+          </div>
+          <div class="brief-entry-grid" aria-label="Выберите способ заполнения брифа">
+            <article class="brief-entry-card">
+              <h3>Я знаю, что мне нужно</h3>
+              <p>Выберу услугу и быстро заполню бриф.</p>
+              <button class="brief-entry-button is-primary" type="button" data-brief-mode="service">Выбрать услугу</button>
+            </article>
+            <article class="brief-entry-card">
+              <h3>Нужна помощь</h3>
+              <p>Расскажу о задаче своими словами.</p>
+              <button class="brief-entry-button" type="button" data-brief-mode="help">Рассказать о задаче</button>
+            </article>
+          </div>
         </div>
-        <form class="request-form reveal" id="lead-form">
-          <h3>Заполните анкету</h3>
-          <label><span>Имя</span><input name="name" autocomplete="name" required></label>
-          <label><span>Название компании (необязательно)</span><input name="company"></label>
-          <label><span>Что вам нужно?</span>
-            <select name="service" id="service-select" required>
-              <option value="">Выберите услугу</option>
-              <option>Лендинг</option><option>Лонгрид</option><option>Многостраничный сайт</option><option>Интернет-магазин</option><option>Графический дизайн</option><option>Айдентика</option><option>Цифровой сервис</option>
-            </select>
-          </label>
-          <label><span>О задаче</span><textarea name="message" rows="4" required></textarea></label>
-          <label><span>Сроки (если уже известны)</span><input name="deadline"></label>
-          <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
-          <label class="consent"><input type="checkbox" required><span>Я согласен на обработку персональных данных</span></label>
-          <button class="button button-dark full" type="submit">Отправить заявку</button>
-          <p class="form-note">Сейчас форма открывает готовое письмо. Для автоматической отправки подключите Formspree или EmailJS.</p>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="brief-wizard" data-brief-view="wizard" hidden>
+          <div class="brief-wizard-bar">
+            <button class="brief-close" type="button" data-brief-close aria-label="Вернуться к выбору сценария">← К началу</button>
+            <div class="brief-progress-wrap" aria-label="Прогресс заполнения">
+              <span class="brief-counter" id="brief-counter">1 / 6</span>
+              <span class="brief-progress"><i id="brief-progress"></i></span>
+            </div>
+            <span class="brief-time">≈ 3–5 минут</span>
+          </div>
+          <form class="brief-form" id="brief-form" novalidate>
+            <div class="brief-step" id="brief-step" aria-live="polite"></div>
+            <p class="form-status" id="brief-status" role="status" aria-live="polite"></p>
+            <div class="brief-actions">
+              <button class="brief-nav-button is-back" type="button" id="brief-back">Назад</button>
+              <button class="brief-nav-button is-next" type="button" id="brief-next">Дальше →</button>
+            </div>
+          </form>
+        </div>
+        <div class="brief-success" data-brief-view="success" hidden>
+          <p class="section-kicker">Готово</p>
+          <h2>Задача собрана</h2>
+          <p>Сейчас откроется готовое письмо. Проверьте ответы и отправьте его — мы вернёмся с уточнениями.</p>
+          <button class="brief-entry-button is-primary" type="button" data-brief-close>Заполнить ещё раз</button>
+        </div>
       </div>
     </section>
   </main>
@@ -294,5 +316,6 @@
   </footer>
 
   <script src="script.js?v=16"></script>
+  <script src="brief.js?v=3"></script>
 </body>
 </html>
