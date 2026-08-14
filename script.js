@@ -249,6 +249,8 @@ const tariffRail = document.querySelector('.tariff-grid');
 const tariffCardsRail = tariffRail ? [...tariffRail.querySelectorAll('.tariff-card')] : [];
 const tariffCurrent = document.querySelector('#tariff-current');
 const tariffProgress = document.querySelector('#tariff-progress');
+const tariffPrevButton = document.querySelector('.tariff-side-arrow--prev');
+const tariffNextButton = document.querySelector('.tariff-side-arrow--next');
 let tariffActiveIndex = 0;
 let tariffAnimationFrame = 0;
 
@@ -286,6 +288,8 @@ function paintTariffDepth() {
 
   if (tariffCurrent) tariffCurrent.textContent = String(nearestIndex + 1).padStart(2, '0');
   if (tariffProgress) tariffProgress.style.transform = `scaleX(${(nearestIndex + 1) / tariffCardsRail.length})`;
+  if (tariffPrevButton) tariffPrevButton.disabled = nearestIndex === 0;
+  if (tariffNextButton) tariffNextButton.disabled = nearestIndex === tariffCardsRail.length - 1;
 }
 
 function animateTariffTo(index) {
