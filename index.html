@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Higezstar — веб-дизайн, графические материалы и цифровые сервисы для бизнеса.">
   <title>Higezstar — веб-дизайн и цифровые сервисы</title>
-  <link rel="icon" href="assets/icon.png">
+  <link rel="icon" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=21">
   <link rel="stylesheet" href="brief.css?v=11">
 
 
@@ -158,7 +158,7 @@
             </div>
           </div>
 
-          <aside class="price-board reveal" id="pricing">
+          <aside class="price-board reveal" id="design-pricing">
             <p class="mini-link">подробнее</p>
             <h3 id="board-title">Веб-дизайн</h3>
             <div class="price-grid">
@@ -212,6 +212,130 @@
             <a class="button button-dark full" href="#request">Подобрать решение</a>
           </aside>
         </div>
+      </div>
+    </section>
+
+    <section class="tariffs" id="pricing" aria-labelledby="tariffs-title">
+      <div class="tariffs__inner container">
+        <div class="tariffs__head reveal">
+          <div>
+            <p class="section-kicker">Подписка на сервис</p>
+            <h2 id="tariffs-title">Тарифы под масштаб команды</h2>
+            <p>На карточках — только главное. Полные лимиты и различия можно раскрыть, не уходя со страницы.</p>
+          </div>
+          <div class="tariffs__controls">
+            <div class="tariff-period" role="group" aria-label="Период оплаты">
+              <button class="tariff-period__button is-active" type="button" data-period="12" aria-pressed="true">12 месяцев <span>выгоднее</span></button>
+              <button class="tariff-period__button" type="button" data-period="6" aria-pressed="false">6 месяцев</button>
+            </div>
+            <div class="tariff-navigation">
+              <div class="tariff-status" aria-live="polite">
+                <span><b id="tariff-current">01</b> / 04</span>
+                <i aria-hidden="true"><b id="tariff-progress"></b></i>
+              </div>
+              <div class="tariff-arrows" aria-label="Листать тарифы">
+                <button type="button" data-tariff-scroll="prev" aria-label="Предыдущий тариф">←</button>
+                <button type="button" data-tariff-scroll="next" aria-label="Следующий тариф">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tariff-grid reveal" id="tariff-grid">
+          <article class="tariff-card" data-plan="Старт">
+            <div class="tariff-card__top"><span>01</span><p>Для небольшой команды</p></div>
+            <h3>Старт</h3>
+            <p class="tariff-card__lead">Базовое управление задачами без лишних модулей.</p>
+            <div class="tariff-card__price"><strong data-price12="8 000" data-price6="10 000">8 000</strong><span>₽ / мес</span></div>
+            <p class="tariff-card__period">при оплате за 12 месяцев</p>
+            <ul>
+              <li>5 сотрудников включено</li>
+              <li>до 100 сервисных точек</li>
+              <li>до 500 активных задач</li>
+              <li>база клиентов и контактов</li>
+            </ul>
+            <details class="tariff-more">
+              <summary>Дополнительные условия</summary>
+              <div><p><span>Максимум сотрудников</span><b>10</b></p><p><span>Доп. сотрудник</span><b>1 200 ₽/мес</b></p><p><span>Расширенные фильтры</span><b>3 000 ₽/мес</b></p></div>
+            </details>
+            <a class="tariff-card__button" href="#request" data-tariff-request="Старт">Выбрать Старт</a>
+          </article>
+
+          <article class="tariff-card tariff-card--featured" data-plan="Сервис">
+            <div class="tariff-card__top"><span>02</span><p>Рекомендуем</p></div>
+            <h3>Сервис</h3>
+            <p class="tariff-card__lead">Полный цикл выездных работ и планового обслуживания.</p>
+            <div class="tariff-card__price"><strong data-price12="18 000" data-price6="21 000">18 000</strong><span>₽ / мес</span></div>
+            <p class="tariff-card__period">при оплате за 12 месяцев</p>
+            <ul>
+              <li>10 сотрудников включено</li>
+              <li>до 3 000 сервисных точек</li>
+              <li>геозоны и карта объектов</li>
+              <li>плановое обслуживание</li>
+            </ul>
+            <details class="tariff-more">
+              <summary>Дополнительные условия</summary>
+              <div><p><span>Максимум сотрудников</span><b>49</b></p><p><span>Доп. сотрудник</span><b>1 800 ₽/мес</b></p><p><span>Мобильное приложение</span><b>6 000 ₽/мес</b></p></div>
+            </details>
+            <a class="tariff-card__button" href="#request" data-tariff-request="Сервис">Выбрать Сервис</a>
+          </article>
+
+          <article class="tariff-card" data-plan="Сервис 50+">
+            <div class="tariff-card__top"><span>03</span><p>Для крупных команд</p></div>
+            <h3>Сервис 50+</h3>
+            <p class="tariff-card__lead">Контроль большой сервисной службы и мобильной команды.</p>
+            <div class="tariff-card__price"><strong data-price12="95 000" data-price6="110 000">95 000</strong><span>₽ / мес</span></div>
+            <p class="tariff-card__period">при оплате за 12 месяцев</p>
+            <ul>
+              <li>50 сотрудников включено</li>
+              <li>до 8 000 сервисных точек</li>
+              <li>50 мобильных лицензий</li>
+              <li>контроль фото по геометке</li>
+            </ul>
+            <details class="tariff-more">
+              <summary>Дополнительные условия</summary>
+              <div><p><span>Максимум сотрудников</span><b>150</b></p><p><span>Доп. сотрудник</span><b>1 500 ₽/мес</b></p><p><span>Администраторов</span><b>до 10</b></p></div>
+            </details>
+            <a class="tariff-card__button" href="#request" data-tariff-request="Сервис 50+">Выбрать Сервис 50+</a>
+          </article>
+
+          <article class="tariff-card tariff-card--corporate" data-plan="Корпорация">
+            <div class="tariff-card__top"><span>04</span><p>Максимальный масштаб</p></div>
+            <h3>Корпорация</h3>
+            <p class="tariff-card__lead">Большие лимиты, индивидуальные условия и сопровождение.</p>
+            <div class="tariff-card__price"><strong data-price12="250 000" data-price6="300 000">250 000</strong><span>₽ / мес</span></div>
+            <p class="tariff-card__period">при оплате за 12 месяцев</p>
+            <ul>
+              <li>50 сотрудников включено</li>
+              <li>до 15 000 сервисных точек</li>
+              <li>администраторы без ограничений</li>
+              <li>индивидуальные лимиты</li>
+            </ul>
+            <details class="tariff-more">
+              <summary>Дополнительные условия</summary>
+              <div><p><span>Максимум сотрудников</span><b>без ограничений</b></p><p><span>Доп. сотрудник</span><b>4 000 ₽/мес</b></p><p><span>Клиентов</span><b>до 20 000</b></p></div>
+            </details>
+            <a class="tariff-card__button" href="#request" data-tariff-request="Корпорация">Обсудить Корпорацию</a>
+          </article>
+        </div>
+
+        <details class="tariff-compare reveal">
+          <summary><span>Сравнить ключевые возможности</span><small>без таблицы на сорок строк</small></summary>
+          <div class="tariff-compare__scroll">
+            <table>
+              <thead><tr><th>Возможность</th><th>Старт</th><th>Сервис</th><th>Сервис 50+</th><th>Корпорация</th></tr></thead>
+              <tbody>
+                <tr><th>Полный цикл статусов</th><td>—</td><td>Да</td><td>Да</td><td>Да</td></tr>
+                <tr><th>Выездной сервис</th><td>—</td><td>Да</td><td>Да</td><td>Да</td></tr>
+                <tr><th>Плановые работы</th><td>—</td><td>Да</td><td>Да</td><td>Да</td></tr>
+                <tr><th>Проверка фото по геометке</th><td>—</td><td>—</td><td>Да</td><td>Да</td></tr>
+                <tr><th>Мобильное приложение</th><td>—</td><td>опция</td><td>включено</td><td>включено</td></tr>
+                <tr><th>Индивидуальные лимиты</th><td>—</td><td>—</td><td>—</td><td>Да</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <p class="tariffs__note">Цены указаны за месяц. Состав и ограничения тарифа фиксируются в договоре до подключения.</p>
       </div>
     </section>
 
@@ -316,7 +440,7 @@
     <div class="footer-bottom"><span>2026 © higezstar</span><span>ИП Солдаткина Дарья</span></div>
   </footer>
 
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=19"></script>
   <script src="brief.js?v=3"></script>
 </body>
 </html>
