@@ -1913,13 +1913,24 @@ button, a { -webkit-tap-highlight-color: transparent; }
   opacity: .28;
   cursor: default;
 }
+.tariff-side-arrow svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .tariff-grid {
   display: flex;
   gap: 12px;
   padding: 5px 2px 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scrollbar-width: none;
   perspective: 1200px;
   cursor: grab;
@@ -1947,7 +1958,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   transform: translateY(var(--lift, 8px)) rotateY(var(--tilt, 0deg)) scale(var(--card-scale, .97));
   transform-origin: center center;
   opacity: var(--card-opacity, .82);
-  transition: transform .42s cubic-bezier(.22, 1, .36, 1), opacity .35s ease, border-color .25s ease, box-shadow .25s ease;
+  transition: transform .26s cubic-bezier(.22, 1, .36, 1), opacity .22s ease, border-color .2s ease, box-shadow .2s ease;
   will-change: transform, opacity;
 }
 .tariff-card::after {
@@ -1962,7 +1973,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   background: linear-gradient(90deg, transparent, rgba(255,255,255,.82), transparent);
   opacity: 0;
   transform: translateX(0) skewX(-16deg);
-  transition: transform .72s cubic-bezier(.22, 1, .36, 1), opacity .18s ease;
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1), opacity .14s ease;
 }
 .tariff-card.is-current {
   --lift: 0px;
@@ -1973,7 +1984,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   box-shadow: 0 28px 58px rgba(11, 34, 63, .12);
 }
 .tariff-card.is-current:not(.tariff-card--featured) { border-color: #aebad0; }
-.tariff-card.is-focus-pop { animation: tariff-focus-pop .58s cubic-bezier(.22, 1, .36, 1); }
+.tariff-card.is-focus-pop { animation: tariff-focus-pop .34s cubic-bezier(.22, 1, .36, 1); }
 @keyframes tariff-focus-pop {
   0% { transform: translateY(8px) scale(.97); }
   55% { transform: translateY(-8px) scale(1.015); }

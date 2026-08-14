@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=23">
+  <link rel="stylesheet" href="style.css?v=25">
   <link rel="stylesheet" href="brief.css?v=11">
 
 
@@ -221,7 +221,7 @@
           <div>
             <p class="section-kicker">Подписка на сервис</p>
             <h2 id="tariffs-title">Тарифы под масштаб команды</h2>
-            <p>На карточках — только главное. Полные лимиты и различия можно раскрыть, не уходя со страницы.</p>
+            <p>На карточках — только главное.<br>Полные лимиты и различия можно раскрыть, не уходя со страницы.</p>
           </div>
           <div class="tariffs__controls">
             <div class="tariff-period" role="group" aria-label="Период оплаты">
@@ -232,7 +232,9 @@
         </div>
 
         <div class="tariff-carousel reveal">
-          <button class="tariff-side-arrow tariff-side-arrow--prev" type="button" data-tariff-scroll="prev" aria-label="Предыдущий тариф">←</button>
+          <button class="tariff-side-arrow tariff-side-arrow--prev" type="button" data-tariff-scroll="prev" aria-label="Предыдущий тариф">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
           <div class="tariff-grid" id="tariff-grid">
           <article class="tariff-card" data-plan="Поток">
             <div class="tariff-card__top"><span>01</span><p>Для небольшой команды</p></div>
@@ -310,11 +312,13 @@
             <a class="tariff-card__button" href="#request" data-tariff-request="Масштаб">Обсудить Масштаб</a>
           </article>
           </div>
-          <button class="tariff-side-arrow tariff-side-arrow--next" type="button" data-tariff-scroll="next" aria-label="Следующий тариф">→</button>
+          <button class="tariff-side-arrow tariff-side-arrow--next" type="button" data-tariff-scroll="next" aria-label="Следующий тариф">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
 
         <details class="tariff-compare reveal">
-          <summary><span>Сравнить ключевые возможности</span><small>без таблицы на сорок строк</small></summary>
+          <summary><span>Сравнить ключевые возможности</span></summary>
           <div class="tariff-compare__scroll">
             <table>
               <thead><tr><th>Возможность</th><th>Поток</th><th>Сервис</th><th>Контроль</th><th>Масштаб</th></tr></thead>
@@ -434,7 +438,7 @@
     <div class="footer-bottom"><span>2026 © higezstar</span><span>ИП Солдаткина Дарья</span></div>
   </footer>
 
-  <script src="script.js?v=20"></script>
+  <script src="script.js?v=21"></script>
   <script src="brief.js?v=3"></script>
 </body>
 </html>

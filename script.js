@@ -298,7 +298,7 @@ function animateTariffTo(index) {
   const start = tariffRail.scrollLeft;
   const finish = Math.min(nextIndex * tariffStepSize(), tariffRail.scrollWidth - tariffRail.clientWidth);
   const distance = finish - start;
-  const duration = 620;
+  const duration = 340;
   const startedAt = performance.now();
   cancelAnimationFrame(tariffAnimationFrame);
   tariffRail.classList.add('is-animating');
