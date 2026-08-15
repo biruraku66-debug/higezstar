@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="brief.css?v=11">
 
 
 
@@ -157,7 +158,7 @@
             </div>
           </div>
 
-          <aside class="price-board reveal" id="pricing">
+          <aside class="price-board reveal" id="design-pricing">
             <p class="mini-link">подробнее</p>
             <h3 id="board-title">Веб-дизайн</h3>
             <div class="price-grid">
@@ -214,6 +215,128 @@
       </div>
     </section>
 
+    <section class="tariffs" id="pricing" aria-labelledby="tariffs-title">
+      <div class="tariffs__inner container">
+        <div class="tariffs__head reveal">
+          <div>
+            <p class="section-kicker">Подписка на сервис</p>
+            <h2 id="tariffs-title">Тарифы под масштаб команды</h2>
+            <p>На карточках — только главное.<br>Полные лимиты и различия можно раскрыть, не уходя со страницы.</p>
+          </div>
+          <div class="tariffs__controls">
+            <div class="tariff-period" role="group" aria-label="Период оплаты">
+              <button class="tariff-period__button is-active" type="button" data-period="12" aria-pressed="true">12 месяцев <span>выгоднее</span></button>
+              <button class="tariff-period__button" type="button" data-period="6" aria-pressed="false">6 месяцев</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tariff-carousel reveal">
+          <button class="tariff-side-arrow tariff-side-arrow--prev" type="button" data-tariff-scroll="prev" aria-label="Предыдущий тариф">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <div class="tariff-grid" id="tariff-grid">
+          <article class="tariff-card" data-plan="Поток">
+            <div class="tariff-card__top"><span>01</span><p>Для небольшой команды</p></div>
+            <h3>Поток</h3>
+            <p class="tariff-card__lead">Задачи, сроки и клиентская база для компактной команды.</p>
+            <div class="tariff-card__price"><strong data-price12="48 000" data-price6="60 000">48 000</strong><span>₽ / мес</span></div>
+            <p class="tariff-card__period">при оплате за 12 месяцев</p>
+            <ul>
+              <li>3 лицензии, команда до 5 человек</li>
+              <li>до 100 сервисных точек</li>
+              <li>до 500 активных задач</li>
+              <li>база клиентов и контактов</li>
+            </ul>
+            <details class="tariff-more">
+              <summary>Дополнительные условия</summary>
+              <div><p><span>Администраторов</span><b>1</b></p><p><span>Файлов в задаче</span><b>5 × 50 МБ</b></p><p><span>Расширенные фильтры</span><b>3 000 ₽/мес</b></p></div>
+            </details>
+            <a class="tariff-card__button" href="#request" data-tariff-request="Поток">Выбрать Поток</a>
+          </article>
+
+          <article class="tariff-card tariff-card--featured" data-plan="Сервис">
+            <div class="tariff-card__top"><span>02</span><p>Рекомендуем</p></div>
+            <h3>Сервис</h3>
+            <p class="tariff-card__lead">Полный цикл выездных работ и планового обслуживания.</p>
+            <div class="tariff-card__price"><strong data-price12="120 000" data-price6="141 176">120 000</strong><span>₽ / мес</span></div>
+            <p class="tariff-card__period">при оплате за 12 месяцев</p>
+            <ul>
+              <li>6 лицензий, команда до 10 человек</li>
+              <li>до 500 сервисных точек</li>
+              <li>геозоны и карта объектов</li>
+              <li>плановое обслуживание</li>
+            </ul>
+            <details class="tariff-more">
+              <summary>Дополнительные условия</summary>
+              <div><p><span>Администраторов</span><b>до 3</b></p><p><span>Мобильное приложение</span><b>6 000 ₽/мес</b></p><p><span>Доп. мобильная лицензия</span><b>500 ₽/мес</b></p></div>
+            </details>
+            <a class="tariff-card__button" href="#request" data-tariff-request="Сервис">Выбрать Сервис</a>
+          </article>
+
+          <article class="tariff-card" data-plan="Контроль">
+            <div class="tariff-card__top"><span>03</span><p>Для большой службы</p></div>
+            <h3>Контроль</h3>
+            <p class="tariff-card__lead">Геозоны, мобильная работа и контроль крупной сервисной команды.</p>
+            <div class="tariff-card__price"><strong data-price12="253 000" data-price6="297 647">253 000</strong><span>₽ / мес</span></div>
+            <p class="tariff-card__period">при оплате за 12 месяцев</p>
+            <ul>
+              <li>11 лицензий, команда до 20 человек</li>
+              <li>до 1 000 сервисных точек</li>
+              <li>50 мобильных лицензий</li>
+              <li>контроль фото по геометке</li>
+            </ul>
+            <details class="tariff-more">
+              <summary>Дополнительные условия</summary>
+              <div><p><span>Администраторов</span><b>до 10</b></p><p><span>Фото сервисной точки</span><b>до 30</b></p><p><span>Доп. мобильная лицензия</span><b>500 ₽/мес</b></p></div>
+            </details>
+            <a class="tariff-card__button" href="#request" data-tariff-request="Контроль">Выбрать Контроль</a>
+          </article>
+
+          <article class="tariff-card tariff-card--corporate" data-plan="Масштаб">
+            <div class="tariff-card__top"><span>04</span><p>Для крупных компаний</p></div>
+            <h3>Масштаб</h3>
+            <p class="tariff-card__lead">Гибкие лимиты и полный контроль для крупных компаний.</p>
+            <div class="tariff-card__price"><strong data-price12="301 875" data-price6="355 147">301 875</strong><span>₽ / мес</span></div>
+            <p class="tariff-card__period">при оплате за 12 месяцев</p>
+            <ul>
+              <li>21 лицензия, команда от 25 человек</li>
+              <li>сервисные точки без ограничений</li>
+              <li>администраторы без ограничений</li>
+              <li>индивидуальные лимиты</li>
+            </ul>
+            <details class="tariff-more">
+              <summary>Дополнительные условия</summary>
+              <div><p><span>Клиенты и контакты</span><b>без ограничений</b></p><p><span>Мобильных лицензий</span><b>50</b></p><p><span>Доп. мобильная лицензия</span><b>500 ₽/мес</b></p></div>
+            </details>
+            <a class="tariff-card__button" href="#request" data-tariff-request="Масштаб">Обсудить Масштаб</a>
+          </article>
+          </div>
+          <button class="tariff-side-arrow tariff-side-arrow--next" type="button" data-tariff-scroll="next" aria-label="Следующий тариф">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <details class="tariff-compare reveal">
+          <summary><span>Сравнить ключевые возможности</span></summary>
+          <div class="tariff-compare__scroll">
+            <table>
+              <thead><tr><th>Возможность</th><th>Поток</th><th>Сервис</th><th>Контроль</th><th>Масштаб</th></tr></thead>
+              <tbody>
+                <tr><th>Полный цикл статусов</th><td>—</td><td>Да</td><td>Да</td><td>Да</td></tr>
+                <tr><th>Выездной сервис</th><td>—</td><td>Да</td><td>Да</td><td>Да</td></tr>
+                <tr><th>Плановые работы</th><td>—</td><td>Да</td><td>Да</td><td>Да</td></tr>
+                <tr><th>Проверка фото по геометке</th><td>—</td><td>—</td><td>Да</td><td>Да</td></tr>
+                <tr><th>Мобильное приложение</th><td>—</td><td>опция</td><td>включено</td><td>включено</td></tr>
+                <tr><th>Индивидуальные лимиты</th><td>—</td><td>—</td><td>—</td><td>Да</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <p class="tariffs__note">Цены указаны за месяц. Состав и ограничения тарифа фиксируются в договоре до подключения.</p>
+      </div>
+    </section>
+
     <section class="process-v16" id="process">
       <div class="process-v16__inner container">
         <div class="process-v16__left reveal">
@@ -255,34 +378,56 @@
     </section>
 
     <section class="request section-blue" id="request">
-      <div class="container request-grid">
-        <div class="request-copy reveal">
-          <p class="section-kicker">Старт проекта</p>
-          <h2>Расскажите<br><span>о задаче</span></h2>
-          <p>Не знаете, с чего начать? Мы подготовили простой бриф без технических формулировок.</p>
-          <video class="mascot-video" autoplay muted loop playsinline preload="metadata" poster="assets/mascot-cta.png" aria-label="Анимированный маскот Higezstar">
-            <source src="assets/mascot-cta.webm" type="video/webm">
-          </video>
-          <img class="mascot-poster" src="assets/mascot-cta.png" alt="Маскот Higezstar" loading="lazy">
+      <div class="container request-shell">
+        <div class="brief-start reveal" data-brief-view="start">
+          <div class="brief-intro">
+            <div class="brief-intro-copy">
+              <p class="section-kicker">Старт проекта</p>
+              <h2>Расскажите<span class="brief-title-line">о вашей задаче</span></h2>
+              <p>Расскажите о проекте так, как удобно —<br>остальное уточним и разберём вместе.</p>
+            </div>
+            <video class="brief-mascot" autoplay muted loop playsinline preload="metadata" poster="assets/mascot-cta.png" aria-label="Анимированный маскот Higezstar">
+              <source src="assets/mascot-cta.webm" type="video/webm">
+            </video>
+            <img class="brief-mascot-static" src="assets/mascot-cta.png" alt="Маскот Higezstar">
+          </div>
+          <div class="brief-entry-grid" aria-label="Выберите способ заполнения брифа">
+            <article class="brief-entry-card">
+              <h3>Я знаю, что мне нужно</h3>
+              <p>Выберу услугу и быстро заполню бриф.</p>
+              <button class="brief-entry-button is-primary" type="button" data-brief-mode="service">Выбрать услугу</button>
+            </article>
+            <article class="brief-entry-card">
+              <h3>Нужна помощь</h3>
+              <p>Расскажу о задаче своими словами.</p>
+              <button class="brief-entry-button" type="button" data-brief-mode="help">Рассказать о задаче</button>
+            </article>
+          </div>
         </div>
-        <form class="request-form reveal" id="lead-form">
-          <h3>Заполните анкету</h3>
-          <label><span>Имя</span><input name="name" autocomplete="name" required></label>
-          <label><span>Название компании (необязательно)</span><input name="company"></label>
-          <label><span>Что вам нужно?</span>
-            <select name="service" id="service-select" required>
-              <option value="">Выберите услугу</option>
-              <option>Лендинг</option><option>Лонгрид</option><option>Многостраничный сайт</option><option>Интернет-магазин</option><option>Графический дизайн</option><option>Айдентика</option><option>Цифровой сервис</option>
-            </select>
-          </label>
-          <label><span>О задаче</span><textarea name="message" rows="4" required></textarea></label>
-          <label><span>Сроки (если уже известны)</span><input name="deadline"></label>
-          <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
-          <label class="consent"><input type="checkbox" required><span>Я согласен на обработку персональных данных</span></label>
-          <button class="button button-dark full" type="submit">Отправить заявку</button>
-          <p class="form-note">Сейчас форма открывает готовое письмо. Для автоматической отправки подключите Formspree или EmailJS.</p>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="brief-wizard" data-brief-view="wizard" hidden>
+          <div class="brief-wizard-bar">
+            <button class="brief-close" type="button" data-brief-close aria-label="Вернуться к выбору сценария">← К началу</button>
+            <div class="brief-progress-wrap" aria-label="Прогресс заполнения">
+              <span class="brief-counter" id="brief-counter">1 / 6</span>
+              <span class="brief-progress"><i id="brief-progress"></i></span>
+            </div>
+            <span class="brief-time">≈ 3–5 минут</span>
+          </div>
+          <form class="brief-form" id="brief-form" novalidate>
+            <div class="brief-step" id="brief-step" aria-live="polite"></div>
+            <p class="form-status" id="brief-status" role="status" aria-live="polite"></p>
+            <div class="brief-actions">
+              <button class="brief-nav-button is-back" type="button" id="brief-back">Назад</button>
+              <button class="brief-nav-button is-next" type="button" id="brief-next">Дальше →</button>
+            </div>
+          </form>
+        </div>
+        <div class="brief-success" data-brief-view="success" hidden>
+          <p class="section-kicker">Готово</p>
+          <h2>Заявка отправлена</h2>
+          <p>Спасибо! Ответы уже ушли команде Higezstar. Мы свяжемся с вами по указанному контакту.</p>
+          <button class="brief-entry-button is-primary" type="button" data-brief-close>Заполнить ещё раз</button>
+        </div>
       </div>
     </section>
   </main>
@@ -293,6 +438,7 @@
     <div class="footer-bottom"><span>2026 © higezstar</span><span>ИП Солдаткина Дарья</span></div>
   </footer>
 
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=21"></script>
+  <script src="brief.js?v=4"></script>
 </body>
 </html>

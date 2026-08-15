@@ -221,6 +221,158 @@ digitalCards.forEach(card => {
   });
 });
 
+const tariffPeriodButtons = [...document.querySelectorAll('[data-period]')];
+const tariffPriceValues = [...document.querySelectorAll('.tariff-card__price strong')];
+const tariffPeriodLabels = [...document.querySelectorAll('.tariff-card__period')];
+
+function setTariffPeriod(period) {
+  tariffPeriodButtons.forEach(button => {
+    const active = button.dataset.period === period;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+
+  tariffPriceValues.forEach(value => {
+    value.textContent = period === '6' ? value.dataset.price6 : value.dataset.price12;
+  });
+
+  tariffPeriodLabels.forEach(label => {
+    label.textContent = `при оплате за ${period} месяцев`;
+  });
+}
+
+tariffPeriodButtons.forEach(button => {
+  button.addEventListener('click', () => setTariffPeriod(button.dataset.period));
+});
+
+const tariffRail = document.querySelector('.tariff-grid');
+const tariffCardsRail = tariffRail ? [...tariffRail.querySelectorAll('.tariff-card')] : [];
+const tariffCurrent = document.querySelector('#tariff-current');
+const tariffProgress = document.querySelector('#tariff-progress');
+const tariffPrevButton = document.querySelector('.tariff-side-arrow--prev');
+const tariffNextButton = document.querySelector('.tariff-side-arrow--next');
+let tariffActiveIndex = 0;
+let tariffAnimationFrame = 0;
+
+function tariffStepSize() {
+  const firstCard = tariffCardsRail[0];
+  if (!tariffRail || !firstCard) return 0;
+  const gap = Number.parseFloat(getComputedStyle(tariffRail).gap) || 0;
+  return firstCard.getBoundingClientRect().width + gap;
+}
+
+function paintTariffDepth() {
+  if (!tariffRail || !tariffCardsRail.length) return;
+  const step = tariffStepSize() || 1;
+  const rawIndex = tariffRail.scrollLeft / step;
+  const nearestIndex = Math.max(0, Math.min(tariffCardsRail.length - 1, Math.round(rawIndex)));
+
+  tariffCardsRail.forEach((card, index) => {
+    const distance = index - rawIndex;
+    const absoluteDistance = Math.min(Math.abs(distance), 2.4);
+    card.style.setProperty('--tilt', `${Math.max(-4.5, Math.min(4.5, distance * -2.2))}deg`);
+    card.style.setProperty('--card-scale', String(1 - absoluteDistance * .025));
+    card.style.setProperty('--card-opacity', String(1 - absoluteDistance * .12));
+    card.style.setProperty('--lift', `${absoluteDistance * 7}px`);
+    card.classList.toggle('is-current', index === nearestIndex);
+  });
+
+  if (nearestIndex !== tariffActiveIndex) {
+    tariffCardsRail[tariffActiveIndex]?.classList.remove('is-focus-pop');
+    tariffActiveIndex = nearestIndex;
+    const activeCard = tariffCardsRail[tariffActiveIndex];
+    activeCard?.classList.remove('is-focus-pop');
+    void activeCard?.offsetWidth;
+    activeCard?.classList.add('is-focus-pop');
+  }
+
+  if (tariffCurrent) tariffCurrent.textContent = String(nearestIndex + 1).padStart(2, '0');
+  if (tariffProgress) tariffProgress.style.transform = `scaleX(${(nearestIndex + 1) / tariffCardsRail.length})`;
+  if (tariffPrevButton) tariffPrevButton.disabled = nearestIndex === 0;
+  if (tariffNextButton) tariffNextButton.disabled = nearestIndex === tariffCardsRail.length - 1;
+}
+
+function animateTariffTo(index) {
+  if (!tariffRail || !tariffCardsRail.length) return;
+  const nextIndex = Math.max(0, Math.min(tariffCardsRail.length - 1, index));
+  const start = tariffRail.scrollLeft;
+  const finish = Math.min(nextIndex * tariffStepSize(), tariffRail.scrollWidth - tariffRail.clientWidth);
+  const distance = finish - start;
+  const duration = 340;
+  const startedAt = performance.now();
+  cancelAnimationFrame(tariffAnimationFrame);
+  tariffRail.classList.add('is-animating');
+
+  const frame = now => {
+    const progress = Math.min(1, (now - startedAt) / duration);
+    const eased = 1 - Math.pow(1 - progress, 4);
+    tariffRail.scrollLeft = start + distance * eased;
+    paintTariffDepth();
+    if (progress < 1) {
+      tariffAnimationFrame = requestAnimationFrame(frame);
+    } else {
+      tariffRail.classList.remove('is-animating');
+      paintTariffDepth();
+    }
+  };
+  tariffAnimationFrame = requestAnimationFrame(frame);
+}
+
+document.querySelectorAll('[data-tariff-scroll]').forEach(button => {
+  button.addEventListener('click', () => {
+    const direction = button.dataset.tariffScroll === 'next' ? 1 : -1;
+    animateTariffTo(tariffActiveIndex + direction);
+  });
+});
+
+if (tariffRail) {
+  let dragging = false;
+  let dragStartX = 0;
+  let dragStartScroll = 0;
+  let paintFrame = 0;
+
+  tariffRail.addEventListener('scroll', () => {
+    cancelAnimationFrame(paintFrame);
+    paintFrame = requestAnimationFrame(paintTariffDepth);
+  }, { passive: true });
+
+  tariffRail.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'touch' || event.target.closest('a, button, summary, details')) return;
+    dragging = true;
+    dragStartX = event.clientX;
+    dragStartScroll = tariffRail.scrollLeft;
+    tariffRail.classList.add('is-dragging');
+    tariffRail.setPointerCapture(event.pointerId);
+  });
+
+  tariffRail.addEventListener('pointermove', event => {
+    if (!dragging) return;
+    tariffRail.scrollLeft = dragStartScroll - (event.clientX - dragStartX) * 1.08;
+  });
+
+  const finishTariffDrag = event => {
+    if (!dragging) return;
+    dragging = false;
+    tariffRail.classList.remove('is-dragging');
+    if (tariffRail.hasPointerCapture(event.pointerId)) tariffRail.releasePointerCapture(event.pointerId);
+    animateTariffTo(Math.round(tariffRail.scrollLeft / (tariffStepSize() || 1)));
+  };
+
+  tariffRail.addEventListener('pointerup', finishTariffDrag);
+  tariffRail.addEventListener('pointercancel', finishTariffDrag);
+  paintTariffDepth();
+}
+
+document.querySelectorAll('[data-tariff-request]').forEach(link => {
+  link.addEventListener('click', () => {
+    const plan = `Цифровой сервис — тариф «${link.dataset.tariffRequest}»`;
+    if (!serviceSelect) return;
+    const optionExists = [...serviceSelect.options].some(option => option.value === plan);
+    if (!optionExists) serviceSelect.add(new Option(plan, plan));
+    serviceSelect.value = plan;
+  });
+});
+
 const steps = [
   {
     n: '01',
