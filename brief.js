@@ -81,9 +81,7 @@ async function submitBrief(){
   const contact=String(briefState.answers.contact||'').trim();
   const payload={
     _subject:`Новая заявка Higezstar: ${service}`,
-    _template:'table',
-    _cc:'soldatkinadp@yandex.ru',
-    _url:'https://higezstar.ru/',
+    Источник:'https://higezstar.ru/',
     Имя:briefState.answers.name||'—',
     Контакт:contact||'—',
     Услуга:service,
@@ -98,13 +96,13 @@ async function submitBrief(){
   briefNext.textContent='Отправляем…';
   briefStatus.textContent='Отправляем заявку…';
   try{
-    const response=await fetch('https://formsubmit.co/ajax/biruraku66@gmail.com',{
+    await fetch('https://script.google.com/macros/s/AKfycbw3WHCF2tJXs6ai7AqPW1y4wrnAHGhvWm_vzhIzCAcI3o1-3bx6Jx65YErxZo97pQuT/exec',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(payload)
+      mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body:new URLSearchParams({payload:JSON.stringify(payload)}),
+      keepalive:true
     });
-    const result=await response.json().catch(()=>({}));
-    if(!response.ok||result.success===false||result.success==='false')throw new Error(result.message||'Не удалось отправить заявку');
     briefStatus.textContent='';
     showView('success');
   }catch(error){
