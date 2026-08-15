@@ -82,6 +82,7 @@ async function submitBrief(){
   const payload={
     _subject:`Новая заявка Higezstar: ${service}`,
     _template:'table',
+    _cc:'soldatkinadp@yandex.ru',
     _url:'https://higezstar.ru/',
     Имя:briefState.answers.name||'—',
     Контакт:contact||'—',
