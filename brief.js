@@ -58,6 +58,7 @@ const help=[
 ];
 const labels={service:'Услуга',websiteType:'Формат сайта',websiteState:'Состояние сайта',currentWebsite:'Текущий сайт',websiteIssue:'Что не устраивает',graphicsType:'Что оформить',graphicsUsage:'Где использовать',graphicsStyle:'Фирменный стиль',identityType:'Объём айдентики',identityState:'Состояние проекта',identityKeep:'Что сохранить',redesignType:'Что переделать',redesignProblem:'Проблема',redesignKeep:'Что сохранить',digitalProduct:'Тип продукта',digitalStage:'Этап продукта',digitalUsers:'Пользователи',projectDescription:'О проекте',existingAssets:'Что уже есть',likes:'Что нравится',dislikes:'Что не нравится',mustHave:'Что учесть',deadline:'Срок',deadlineDate:'Дата',budget:'Бюджет',helpDescription:'Описание задачи',helpState:'Состояние проекта',helpProblem:'Что мешает',helpAssets:'Что уже есть',helpLikes:'Что нравится',helpDislikes:'Что не хочется',helpDeadline:'Срок',helpDeadlineDate:'Дата',name:'Имя',contact:'Контакт'};
 const briefState={mode:null,index:0,flow:[],answers:{}};
+let briefSubmitting=false;
 function showView(name){briefViews.forEach(view=>{view.hidden=view.dataset.briefView!==name})}
 function serviceFlow(service){return[serviceStep,...(branches[service]||[]),...common]}
 function startBrief(mode){briefState.mode=mode;briefState.index=0;briefState.answers={};briefState.flow=mode==='help'?help:[serviceStep,...common];showView('wizard');renderStep();document.querySelector('#request')?.scrollIntoView({behavior:'smooth',block:'start'})}
@@ -71,5 +72,47 @@ function renderStep(){const step=briefState.flow[briefState.index];if(!step||!br
 function choose(step,value){if(step.multiple){const current=Array.isArray(briefState.answers[step.id])?[...briefState.answers[step.id]]:[];briefState.answers[step.id]=current.includes(value)?current.filter(item=>item!==value):[...current,value]}else briefState.answers[step.id]=value;if(step.id==='service'&&value!=='Пока не уверен'){briefState.flow=serviceFlow(value);briefCounter.textContent=`1 / ${briefState.flow.length}`;briefProgress.style.width=`${100/briefState.flow.length}%`}if(step.type==='website-state'||step.type==='deadline'){renderStep();return}briefStepNode.querySelectorAll('[data-answer-value]').forEach(button=>button.classList.toggle('is-selected',isSelected(button.dataset.answerValue,briefState.answers[step.id],step.multiple)))}
 function bindStep(step){briefStepNode.querySelectorAll('[data-answer-value]').forEach(button=>button.addEventListener('click',()=>{const nested=button.closest('.brief-inline-extra')&&step.type==='website-state';if(nested){briefState.answers.websiteIssue=button.dataset.answerValue;button.closest('.brief-options').querySelectorAll('.brief-option').forEach(item=>item.classList.toggle('is-selected',item===button))}else choose(step,button.dataset.answerValue)}));briefStepNode.querySelectorAll('[data-field-id]').forEach(control=>control.addEventListener(control.type==='checkbox'?'change':'input',()=>{briefState.answers[control.dataset.fieldId]=control.type==='checkbox'?control.checked:control.value}))}
 function valid(step){if(step.optional)return true;if(step.type==='choice'){const answer=briefState.answers[step.id];return step.multiple?Array.isArray(answer)&&answer.length>0:Boolean(answer)}if(step.type==='fields')return step.fields.every(field=>!field.required||Boolean(briefState.answers[field.id]));if(step.type==='website-state'){if(!briefState.answers.websiteState)return false;return briefState.answers.websiteState!=='Да, его нужно обновить'||Boolean(briefState.answers.currentWebsite&&briefState.answers.websiteIssue)}if(step.type==='deadline'){if(!briefState.answers[step.id])return false;if(briefState.answers[step.id]==='Есть конкретная дата'){const id=step.id==='helpDeadline'?'helpDeadlineDate':'deadlineDate';return Boolean(briefState.answers[id])}}return true}
-function submitBrief(){const service=briefState.mode==='help'?'Нужна помощь с определением задачи':briefState.answers.service;const lines=Object.entries(briefState.answers).filter(([key,value])=>key!=='consent'&&value!==''&&value!==false&&value!=null).map(([key,value])=>`${labels[key]||key}: ${Array.isArray(value)?value.join(', '):value}`);const subject=encodeURIComponent(`Заявка Higezstar: ${service}`),body=encodeURIComponent(`Новая задача с сайта Higezstar\n\n${lines.join('\n')}`);briefStatus.textContent='Открываю готовое письмо…';showView('success');setTimeout(()=>{window.location.href=`mailto:soldatkinadp@yandex.ru?subject=${subject}&body=${body}`},250)}
+async function submitBrief(){
+  if(briefSubmitting)return;
+  const service=briefState.mode==='help'?'Нужна помощь с определением задачи':briefState.answers.service;
+  const lines=Object.entries(briefState.answers)
+    .filter(([key,value])=>key!=='consent'&&value!==''&&value!==false&&value!=null)
+    .map(([key,value])=>`${labels[key]||key}: ${Array.isArray(value)?value.join(', '):value}`);
+  const contact=String(briefState.answers.contact||'').trim();
+  const payload={
+    _subject:`Новая заявка Higezstar: ${service}`,
+    _template:'table',
+    _url:'https://higezstar.ru/',
+    Имя:briefState.answers.name||'—',
+    Контакт:contact||'—',
+    Услуга:service,
+    Ответы:lines.join('\n')
+  };
+  if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)){
+    payload.email=contact;
+    payload._replyto=contact;
+  }
+  briefSubmitting=true;
+  briefNext.disabled=true;
+  briefNext.textContent='Отправляем…';
+  briefStatus.textContent='Отправляем заявку…';
+  try{
+    const response=await fetch('https://formsubmit.co/ajax/soldatkinadp@yandex.ru',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok||result.success===false||result.success==='false')throw new Error(result.message||'Не удалось отправить заявку');
+    briefStatus.textContent='';
+    showView('success');
+  }catch(error){
+    briefStatus.textContent='Не получилось отправить заявку. Проверьте интернет и попробуйте ещё раз или напишите на soldatkinadp@yandex.ru.';
+  }finally{
+    briefSubmitting=false;
+    briefNext.disabled=false;
+    if(!document.querySelector('[data-brief-view="success"]:not([hidden])'))briefNext.textContent='Отправить задачу →';
+  }
+}
 document.querySelectorAll('[data-brief-mode]').forEach(button=>button.addEventListener('click',()=>startBrief(button.dataset.briefMode)));document.querySelectorAll('[data-brief-close]').forEach(button=>button.addEventListener('click',resetBrief));briefBack?.addEventListener('click',()=>{if(briefState.index===0){resetBrief();return}briefState.index--;renderStep()});briefNext?.addEventListener('click',()=>{const step=briefState.flow[briefState.index];if(!valid(step)){briefStatus.textContent='Выберите вариант или заполните обязательное поле.';return}if(step.id==='service'&&briefState.answers.service==='Пока не уверен'){startBrief('help');return}if(briefState.index===briefState.flow.length-1){submitBrief();return}briefState.index++;renderStep();document.querySelector('.brief-wizard')?.scrollIntoView({behavior:'smooth',block:'start'})});briefForm?.addEventListener('submit',event=>event.preventDefault());
+
