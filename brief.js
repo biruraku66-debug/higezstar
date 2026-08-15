@@ -97,7 +97,7 @@ async function submitBrief(){
   briefNext.textContent='Отправляем…';
   briefStatus.textContent='Отправляем заявку…';
   try{
-    const response=await fetch('https://formsubmit.co/ajax/soldatkinadp@yandex.ru',{
+    const response=await fetch('https://formsubmit.co/ajax/biruraku66@gmail.com',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify(payload)
