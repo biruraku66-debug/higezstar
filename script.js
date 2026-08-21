@@ -28,7 +28,30 @@ function activateTab(activeTab) {
   });
 }
 
-tabs.forEach(tab => tab.addEventListener('click', () => activateTab(tab)));
+function activateTabByName(tabName) {
+  const tab = tabs.find(item => item.dataset.tab === tabName);
+  if (tab) activateTab(tab);
+}
+
+tabs.forEach(tab => tab.addEventListener('click', () => {
+  activateTab(tab);
+  const hash = tab.dataset.tab === 'digital' ? '#products' : '#services';
+  window.history.replaceState(null, '', hash);
+}));
+
+document.querySelectorAll('[data-open-tab]').forEach(link => {
+  link.addEventListener('click', () => activateTabByName(link.dataset.openTab));
+});
+
+function activateTabFromHash() {
+  if (window.location.hash === '#products') {
+    activateTabByName('digital');
+    window.requestAnimationFrame(() => document.querySelector('#products')?.scrollIntoView({ block: 'start' }));
+  }
+}
+
+activateTabFromHash();
+window.addEventListener('hashchange', activateTabFromHash);
 
 const designCategories = {
   web: {
