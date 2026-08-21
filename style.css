@@ -297,21 +297,26 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .board-description { margin: 0 0 20px; color: var(--muted); font-size: 13px; line-height: 1.55; }
 .digital-board .full { margin-top: 22px; }
 .digital-product-note {
-  width: fit-content;
-  margin-top: 18px;
-  padding: 10px 14px;
+  width: min(560px, 100%);
+  margin-top: 22px;
+  padding: 12px 15px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 18px;
   border: 1px solid rgba(255, 255, 255, .3);
-  border-radius: 999px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, .1);
   color: #fff;
   font-size: 11px;
   backdrop-filter: blur(8px);
 }
 .digital-product-note b { text-transform: uppercase; letter-spacing: .08em; }
-.digital-product-note span { opacity: .78; }
+.digital-product-note span { opacity: .78; text-align: right; }
+@media (max-width: 520px) {
+  .digital-product-note { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .digital-product-note span { text-align: left; }
+}
 .full { width: 100%; }
 
 .process {
