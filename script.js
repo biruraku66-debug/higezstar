@@ -16,6 +16,7 @@ mobileMenu?.querySelectorAll('a').forEach(link => {
 
 const tabs = [...document.querySelectorAll('.tab')];
 const panels = [...document.querySelectorAll('[data-panel]')];
+const pricingSection = document.querySelector('#pricing');
 
 function activateTab(activeTab) {
   tabs.forEach(tab => {
@@ -26,6 +27,7 @@ function activateTab(activeTab) {
   panels.forEach(panel => {
     panel.hidden = panel.dataset.panel !== activeTab.dataset.tab;
   });
+  if (pricingSection) pricingSection.hidden = activeTab.dataset.tab !== 'digital';
 }
 
 function activateTabByName(tabName) {
@@ -44,9 +46,10 @@ document.querySelectorAll('[data-open-tab]').forEach(link => {
 });
 
 function activateTabFromHash() {
-  if (window.location.hash === '#products') {
+  if (window.location.hash === '#products' || window.location.hash === '#pricing') {
     activateTabByName('digital');
-    window.requestAnimationFrame(() => document.querySelector('#products')?.scrollIntoView({ block: 'start' }));
+    const target = window.location.hash === '#pricing' ? pricingSection : document.querySelector('#products');
+    window.requestAnimationFrame(() => target?.scrollIntoView({ block: 'start' }));
   }
 }
 
