@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="style.css?v=26">
   <link rel="stylesheet" href="brief.css?v=11">
 
 
@@ -134,7 +134,7 @@
       <div class="container">
         <div class="tabs reveal" role="tablist" aria-label="Направления">
           <button class="tab is-active" type="button" data-tab="design" role="tab" aria-selected="true">дизайн</button>
-          <button class="tab" type="button" data-tab="digital" role="tab" aria-selected="false">цифровые сервисы</button>
+          <button class="tab" type="button" data-tab="digital" role="tab" aria-selected="false">приложение</button>
         </div>
 
         <div class="service-layout" data-panel="design">
@@ -178,38 +178,39 @@
 
         <div class="service-layout digital-panel" data-panel="digital" hidden>
           <div class="service-copy reveal">
-            <p class="section-kicker">Цифровые сервисы</p>
-            <h2>Инструменты<br>для ежедневной работы</h2>
-            <p>Подбираем сервис под конкретную задачу, настраиваем доступ и объясняем команде, как им пользоваться.</p>
-            <div class="service-cards digital-cards" aria-label="Виды цифровых сервисов">
-              <article class="service-card card-white rotate-left is-selected" tabindex="0" role="button" data-digital-card="access" aria-label="Подробнее о доступе к сервисам">
-                <span>01</span><h3>Доступ к сервисам</h3><p class="card-price-preview">Готовые приложения по подписке<small>смотреть условия →</small></p>
+            <p class="section-kicker">Higezstar App</p>
+            <h2>Приложение<br>для сервисных команд</h2>
+            <p>Одно рабочее пространство для заявок, клиентов, объектов и выездной команды. Тариф определяет лимиты и доступные возможности.</p>
+            <div class="digital-product-note"><b>Один продукт</b><span>Четыре ключевых модуля внутри приложения</span></div>
+            <div class="service-cards digital-cards" aria-label="Возможности приложения Higezstar">
+              <article class="service-card card-white rotate-left is-selected" tabindex="0" role="button" data-digital-card="requests" aria-label="Подробнее о заявках и процессах">
+                <span>01</span><h3>Заявки</h3><p class="card-price-preview">Статусы · сроки · ответственные<small>смотреть возможности →</small></p>
               </article>
-              <article class="service-card card-mint rotate-right" tabindex="0" role="button" data-digital-card="setup" aria-label="Подробнее о настройке сервисов">
-                <span>02</span><h3>Настройка</h3><p class="card-price-preview">Подготовка сервиса под процессы<small>смотреть условия →</small></p>
+              <article class="service-card card-mint rotate-right" tabindex="0" role="button" data-digital-card="clients" aria-label="Подробнее о клиентах и объектах">
+                <span>02</span><h3>Клиенты и объекты</h3><p class="card-price-preview">База · контакты · сервисные точки<small>смотреть возможности →</small></p>
               </article>
-              <article class="service-card card-red rotate-left-small" tabindex="0" role="button" data-digital-card="launch" aria-label="Подробнее о внедрении сервисов">
-                <span>03</span><h3>Внедрение</h3><p class="card-price-preview">Подключение команды и запуск<small>смотреть условия →</small></p>
+              <article class="service-card card-red rotate-left-small" tabindex="0" role="button" data-digital-card="fieldwork" aria-label="Подробнее о выездной работе">
+                <span>03</span><h3>Выездная работа</h3><p class="card-price-preview">Задачи · геозоны · маршруты<small>смотреть возможности →</small></p>
               </article>
-              <article class="service-card card-blue rotate-right-small" tabindex="0" role="button" data-digital-card="support" aria-label="Подробнее о поддержке сервисов">
-                <span>04</span><h3>Поддержка</h3><p class="card-price-preview">Настройки и развитие решения<small>смотреть условия →</small></p>
+              <article class="service-card card-blue rotate-right-small" tabindex="0" role="button" data-digital-card="control" aria-label="Подробнее о контроле команды">
+                <span>04</span><h3>Контроль</h3><p class="card-price-preview">Планирование · аналитика · история<small>смотреть возможности →</small></p>
               </article>
             </div>
           </div>
           <aside class="price-board digital-board reveal">
-            <p class="mini-link">подробнее</p>
-            <h3 id="digital-board-title">Доступ к сервисам</h3>
-            <p class="board-description" id="digital-board-text">Подбираем готовый продукт и предоставляем доступ без затрат на собственную разработку.</p>
+            <p class="mini-link">возможность приложения</p>
+            <h3 id="digital-board-title">Заявки и процессы</h3>
+            <p class="board-description" id="digital-board-text">Все обращения собираются в одном месте: со статусами, сроками и ответственными.</p>
             <div class="board-meta">
-              <div><span>стоимость</span><strong id="digital-board-price">от 5 000 ₽ / мес</strong></div>
-              <div><span>запуск</span><strong id="digital-board-time">от 1 дня</strong></div>
+              <div><span>доступно</span><strong id="digital-board-price">во всех тарифах</strong></div>
+              <div><span>формат</span><strong id="digital-board-time">веб + mobile</strong></div>
             </div>
             <ul id="digital-board-includes">
-              <li>Подбор сервиса под задачу</li>
-              <li>Оформление доступа</li>
-              <li>Короткая инструкция для команды</li>
+              <li>Единая очередь заявок</li>
+              <li>Статусы и контроль сроков</li>
+              <li>Ответственные и история действий</li>
             </ul>
-            <a class="button button-dark full" href="#request">Подобрать решение</a>
+            <a class="button button-dark full" href="#pricing">Смотреть тарифы приложения</a>
           </aside>
         </div>
       </div>
@@ -219,9 +220,9 @@
       <div class="tariffs__inner container">
         <div class="tariffs__head reveal">
           <div>
-            <p class="section-kicker">Подписка на сервис</p>
-            <h2 id="tariffs-title">Тарифы под масштаб команды</h2>
-            <p>На карточках — только главное.<br>Полные лимиты и различия можно раскрыть, не уходя со страницы.</p>
+            <p class="section-kicker">Тарифы приложения</p>
+            <h2 id="tariffs-title">Выберите тариф Higezstar App</h2>
+            <p>Одно приложение — разные лимиты для команды и объектов.<br>Полные различия можно раскрыть, не уходя со страницы.</p>
           </div>
           <div class="tariffs__controls">
             <div class="tariff-period" role="group" aria-label="Период оплаты">
@@ -438,7 +439,7 @@
     <div class="footer-bottom"><span>2026 © higezstar</span><span>ИП Солдаткина Дарья</span></div>
   </footer>
 
-  <script src="script.js?v=21"></script>
+  <script src="script.js?v=22"></script>
   <script src="brief.js?v=6"></script>
 </body>
 </html>

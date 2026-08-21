@@ -144,37 +144,37 @@ bindPriceButtons();
 priceGrid?.querySelector('button')?.classList.add('is-selected');
 
 const digitalCategories = {
-  access: {
-    title: 'Доступ к сервисам',
-    text: 'Подбираем готовый продукт и предоставляем доступ без затрат на собственную разработку.',
-    price: 'от 5 000 ₽ / мес',
-    time: 'от 1 дня',
-    includes: ['Подбор сервиса под задачу', 'Оформление доступа', 'Короткая инструкция для команды'],
-    formValue: 'Доступ к цифровому сервису'
+  requests: {
+    title: 'Заявки и процессы',
+    text: 'Все обращения собираются в одном месте: со статусами, сроками и ответственными.',
+    price: 'во всех тарифах',
+    time: 'веб + mobile',
+    includes: ['Единая очередь заявок', 'Статусы и контроль сроков', 'Ответственные и история действий'],
+    formValue: 'Приложение Higezstar — заявки и процессы'
   },
-  setup: {
-    title: 'Настройка',
-    text: 'Переносим реальные процессы компании в выбранный сервис и убираем лишние функции.',
-    price: 'от 15 000 ₽',
-    time: 'от 3 дней',
-    includes: ['Структура задач и ролей', 'Настройка полей и сценариев', 'Тестирование рабочего процесса'],
-    formValue: 'Настройка цифрового сервиса'
+  clients: {
+    title: 'Клиенты и объекты',
+    text: 'Контакты, договоры и сервисные точки связаны между собой и доступны команде.',
+    price: 'зависит от тарифа',
+    time: 'единая база',
+    includes: ['Карточки клиентов', 'Объекты и сервисные точки', 'Контакты и история обслуживания'],
+    formValue: 'Приложение Higezstar — клиенты и объекты'
   },
-  launch: {
-    title: 'Внедрение',
-    text: 'Подключаем команду, переносим необходимые данные и сопровождаем первые рабочие сценарии.',
-    price: 'от 25 000 ₽',
-    time: 'от 1 недели',
-    includes: ['Подключение сотрудников', 'Перенос исходных данных', 'Обучение и запуск'],
-    formValue: 'Внедрение цифрового сервиса'
+  fieldwork: {
+    title: 'Выездная работа',
+    text: 'Сотрудник видит задачу, маршрут и данные объекта — прямо с телефона.',
+    price: 'в рабочих тарифах',
+    time: 'mobile',
+    includes: ['Мобильные задания', 'Маршруты и геозоны', 'Фото и отчёт по результату'],
+    formValue: 'Приложение Higezstar — выездная работа'
   },
-  support: {
-    title: 'Поддержка',
-    text: 'Остаёмся на связи после запуска, исправляем настройки и развиваем решение вместе с компанией.',
-    price: 'от 8 000 ₽ / мес',
-    time: 'ежемесячно',
-    includes: ['Ответы на вопросы команды', 'Корректировка настроек', 'Развитие рабочих сценариев'],
-    formValue: 'Поддержка цифрового сервиса'
+  control: {
+    title: 'Контроль команды',
+    text: 'Руководитель видит загрузку, сроки и результат без ручных таблиц и переписок.',
+    price: 'зависит от тарифа',
+    time: 'в реальном времени',
+    includes: ['Планирование загрузки', 'Контроль SLA и сроков', 'Аналитика и история изменений'],
+    formValue: 'Приложение Higezstar — контроль команды'
   }
 };
 
@@ -408,7 +408,7 @@ let stepIndex = 0;
 const nextStep = document.querySelector('.next-step');
 const processNodes = [...document.querySelectorAll('[data-process-step]')];
 
-function renderStep(index) {
+function renderProcessStep(index) {
   const step = steps[index];
   const processSection = document.querySelector('.process-v16');
   if (processSection) processSection.dataset.activeStep = String(index);
@@ -435,15 +435,15 @@ function renderStep(index) {
 
 processNodes.forEach((node, index) => node.addEventListener('click', () => {
   stepIndex = index;
-  renderStep(stepIndex);
+  renderProcessStep(stepIndex);
 }));
 
 nextStep?.addEventListener('click', () => {
   stepIndex = (stepIndex + 1) % steps.length;
-  renderStep(stepIndex);
+  renderProcessStep(stepIndex);
 });
 
-renderStep(stepIndex);
+renderProcessStep(stepIndex);
 
 const revealElements = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
