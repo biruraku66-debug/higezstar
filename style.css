@@ -430,6 +430,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .footer > div:nth-child(2) { text-align: right; }
 .footer > div:nth-child(2) span, .footer > div:nth-child(2) a { display: block; font-size: 12px; }
 .footer-bottom { grid-column: 1 / -1; margin-top: 43px; padding-top: 24px; display: flex; justify-content: space-between; border-top: 1px solid #d7dde1; color: #9098ae; font-size: 11px; }
+.footer-bottom a, .tariffs__offer a { text-decoration: underline; text-underline-offset: 3px; }
+.tariffs__offer { margin: 14px 0 0; color: #1025dd; font-size: 14px; }
 
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
