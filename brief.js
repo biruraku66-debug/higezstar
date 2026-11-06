@@ -39,8 +39,9 @@ const common=[
   {id:'deadline',title:'Когда нужен результат?',type:'deadline',options:['Как можно скорее','Есть конкретная дата','Жёсткого дедлайна нет']},
   choice('budget','Ориентир по бюджету',['До 30 000 ₽','30–60 000 ₽','60–100 000 ₽','100 000 ₽ +','Пока не знаю'],'Необязательный вопрос — можно пропустить.',false,true),
   fields('contact','Как с вами связаться?',[
-    {id:'name',label:'Имя',type:'text',required:true,autocomplete:'name',placeholder:'Как к вам обращаться'},
-    {id:'contact',label:'Телефон',type:'tel',required:true,autocomplete:'tel',placeholder:'+7 900 000-00-00'},
+    {id:'name',label:'Как к вам обращаться',type:'text',required:true,autocomplete:'name',placeholder:'Ваше имя'},
+    {id:'contact',label:'Номер телефона',type:'tel',required:true,autocomplete:'tel',placeholder:'+7 900 000-00-00'},
+    {id:'email',label:'Электронная почта (необязательно)',type:'email',autocomplete:'email',placeholder:'name@example.com'},
     {id:'consent',label:'Я согласен на обработку персональных данных',type:'checkbox',required:true}
   ])
 ];
@@ -56,7 +57,7 @@ const help=[
   {id:'helpDeadline',title:'Когда хотелось бы получить результат?',type:'deadline',options:['Как можно скорее','Есть конкретная дата','Срок пока не принципиален']},
   common[4],common[5]
 ];
-const labels={service:'Услуга',websiteType:'Формат сайта',websiteState:'Состояние сайта',currentWebsite:'Текущий сайт',websiteIssue:'Что не устраивает',graphicsType:'Что оформить',graphicsUsage:'Где использовать',graphicsStyle:'Фирменный стиль',identityType:'Объём айдентики',identityState:'Состояние проекта',identityKeep:'Что сохранить',redesignType:'Что переделать',redesignProblem:'Проблема',redesignKeep:'Что сохранить',digitalProduct:'Тип продукта',digitalStage:'Этап продукта',digitalUsers:'Пользователи',projectDescription:'О проекте',existingAssets:'Что уже есть',likes:'Что нравится',dislikes:'Что не нравится',mustHave:'Что учесть',deadline:'Срок',deadlineDate:'Дата',budget:'Бюджет',helpDescription:'Описание задачи',helpState:'Состояние проекта',helpProblem:'Что мешает',helpAssets:'Что уже есть',helpLikes:'Что нравится',helpDislikes:'Что не хочется',helpDeadline:'Срок',helpDeadlineDate:'Дата',name:'Имя',contact:'Контакт'};
+const labels={service:'Услуга',websiteType:'Формат сайта',websiteState:'Состояние сайта',currentWebsite:'Текущий сайт',websiteIssue:'Что не устраивает',graphicsType:'Что оформить',graphicsUsage:'Где использовать',graphicsStyle:'Фирменный стиль',identityType:'Объём айдентики',identityState:'Состояние проекта',identityKeep:'Что сохранить',redesignType:'Что переделать',redesignProblem:'Проблема',redesignKeep:'Что сохранить',digitalProduct:'Тип продукта',digitalStage:'Этап продукта',digitalUsers:'Пользователи',projectDescription:'О проекте',existingAssets:'Что уже есть',likes:'Что нравится',dislikes:'Что не нравится',mustHave:'Что учесть',deadline:'Срок',deadlineDate:'Дата',budget:'Бюджет',helpDescription:'Описание задачи',helpState:'Состояние проекта',helpProblem:'Что мешает',helpAssets:'Что уже есть',helpLikes:'Что нравится',helpDislikes:'Что не хочется',helpDeadline:'Срок',helpDeadlineDate:'Дата',name:'Имя',contact:'Телефон',email:'Электронная почта'};
 const briefState={mode:null,index:0,flow:[],answers:{}};
 let briefSubmitting=false;
 function showView(name){briefViews.forEach(view=>{view.hidden=view.dataset.briefView!==name})}
@@ -79,6 +80,7 @@ async function submitBrief(){
     .filter(([key,value])=>key!=='consent'&&value!==''&&value!==false&&value!=null)
     .map(([key,value])=>`${labels[key]||key}: ${Array.isArray(value)?value.join(', '):value}`);
   const contact=String(briefState.answers.contact||'').trim();
+  const email=String(briefState.answers.email||'').trim();
   const payload={
     _subject:`Новая заявка Higezstar: ${service}`,
     Источник:'https://higezstar.ru/',
@@ -87,9 +89,9 @@ async function submitBrief(){
     Услуга:service,
     Ответы:lines.join('\n')
   };
-  if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)){
-    payload.email=contact;
-    payload._replyto=contact;
+  if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    payload.email=email;
+    payload._replyto=email;
   }
   briefSubmitting=true;
   briefNext.disabled=true;
